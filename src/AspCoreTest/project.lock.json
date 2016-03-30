@@ -3,6 +3,61 @@
   "version": 2,
   "targets": {
     "DNX,Version=v4.5.1": {
+      "Autofac/4.0.0-rc1-177": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Autofac.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Autofac.dll": {}
+        }
+      },
+      "Autofac.Extensions.DependencyInjection/4.0.0-rc1-177": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "4.0.0-rc1-177",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/Autofac.Extensions.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Autofac.Extensions.DependencyInjection.dll": {}
+        }
+      },
+      "Autofac.Framework.DependencyInjection/4.0.0-beta8-157": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "4.0.0-beta8-157",
+          "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta8"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Autofac.dll": {},
+          "lib/dnx451/Autofac.Framework.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Autofac.dll": {},
+          "lib/dnx451/Autofac.Framework.DependencyInjection.dll": {}
+        }
+      },
       "EntityFramework.Commands/7.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -324,6 +379,33 @@
           "lib/net451/Microsoft.AspNet.DataProtection.Abstractions.dll": {}
         }
       },
+      "Microsoft.AspNet.Diagnostics/1.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Diagnostics.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.FileProviders.Physical": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Http.Extensions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.WebUtilities": "1.0.0-rc1-final",
+          "Microsoft.Dnx.Compilation.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.OptionsModel": "1.0.0-rc1-final",
+          "Microsoft.Extensions.WebEncoders.Core": "1.0.0-rc1-final",
+          "System.Diagnostics.DiagnosticSource": "4.0.0-beta-23516"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core",
+          "System.Runtime"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.AspNet.Diagnostics.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.AspNet.Diagnostics.dll": {}
+        }
+      },
       "Microsoft.AspNet.Diagnostics.Abstractions/1.0.0-rc1-final": {
         "type": "package",
         "frameworkAssemblies": [
@@ -337,6 +419,27 @@
         },
         "runtime": {
           "lib/net451/Microsoft.AspNet.Diagnostics.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Diagnostics.Entity/7.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework.Relational": "7.0.0-rc1-final",
+          "Microsoft.AspNet.Diagnostics": "1.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Configuration",
+          "System.Core",
+          "System.Threading.Tasks"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.AspNet.Diagnostics.Entity.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.AspNet.Diagnostics.Entity.dll": {}
         }
       },
       "Microsoft.AspNet.FileProviders.Abstractions/1.0.0-rc1-final": {
@@ -1264,24 +1367,6 @@
           "lib/net451/Microsoft.Extensions.Configuration.Json.dll": {}
         }
       },
-      "Microsoft.Extensions.Configuration.UserSecrets/1.0.0-rc1-final": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/net451/Microsoft.Extensions.Configuration.UserSecrets.dll": {}
-        },
-        "runtime": {
-          "lib/net451/Microsoft.Extensions.Configuration.UserSecrets.dll": {}
-        }
-      },
       "Microsoft.Extensions.DependencyInjection/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -1501,6 +1586,21 @@
           "lib/net451/Microsoft.Extensions.WebEncoders.Core.dll": {}
         }
       },
+      "Microsoft.Framework.DependencyInjection.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        }
+      },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
         "type": "package",
         "frameworkAssemblies": [
@@ -1514,6 +1614,27 @@
         },
         "runtime": {
           "lib/net451/Microsoft.Net.Http.Headers.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.Web.BrowserLink.Loader/14.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.FileProviders.Physical": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.PageExecutionInstrumentation.Interfaces": "1.0.0-rc1-final",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
         }
       },
       "Newtonsoft.Json/6.0.6": {
@@ -1747,6 +1868,61 @@
       }
     },
     "DNXCore,Version=v5.0": {
+      "Autofac/4.0.0-rc1-177": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Collections.Concurrent": "4.0.11-beta-23516",
+          "System.ComponentModel": "4.0.1-beta-23516",
+          "System.Diagnostics.Debug": "4.0.11-beta-23516",
+          "System.Diagnostics.Tools": "4.0.1-beta-23516",
+          "System.Globalization": "4.0.11-beta-23516",
+          "System.Linq": "4.0.1-beta-23516",
+          "System.Linq.Expressions": "4.0.11-beta-23516",
+          "System.Reflection": "4.1.0-beta-23516",
+          "System.Reflection.Extensions": "4.0.1-beta-23516",
+          "System.Resources.ResourceManager": "4.0.1-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading.Tasks": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dnxcore50/Autofac.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Autofac.dll": {}
+        }
+      },
+      "Autofac.Extensions.DependencyInjection/4.0.0-rc1-177": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "4.0.0-rc1-177",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading.Tasks": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/Autofac.Extensions.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/Autofac.Extensions.DependencyInjection.dll": {}
+        }
+      },
+      "Autofac.Framework.DependencyInjection/4.0.0-beta8-157": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "4.0.0-beta8-157",
+          "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta8"
+        },
+        "compile": {
+          "lib/dotnet/Autofac.dll": {},
+          "lib/dotnet/Autofac.Framework.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/Autofac.dll": {},
+          "lib/dotnet/Autofac.Framework.DependencyInjection.dll": {}
+        }
+      },
       "EntityFramework.Commands/7.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -2005,6 +2181,27 @@
           "lib/dotnet5.4/Microsoft.AspNet.DataProtection.Abstractions.dll": {}
         }
       },
+      "Microsoft.AspNet.Diagnostics/1.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Diagnostics.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.FileProviders.Physical": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Http.Extensions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.WebUtilities": "1.0.0-rc1-final",
+          "Microsoft.Dnx.Compilation.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.OptionsModel": "1.0.0-rc1-final",
+          "Microsoft.Extensions.WebEncoders.Core": "1.0.0-rc1-final",
+          "System.Diagnostics.DiagnosticSource": "4.0.0-beta-23516",
+          "System.Reflection.Extensions": "4.0.1-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/Microsoft.AspNet.Diagnostics.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/Microsoft.AspNet.Diagnostics.dll": {}
+        }
+      },
       "Microsoft.AspNet.Diagnostics.Abstractions/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -2016,6 +2213,20 @@
         },
         "runtime": {
           "lib/dotnet5.4/Microsoft.AspNet.Diagnostics.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Diagnostics.Entity/7.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework.Relational": "7.0.0-rc1-final",
+          "Microsoft.AspNet.Diagnostics": "1.0.0-rc1-final",
+          "System.Threading": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/Microsoft.AspNet.Diagnostics.Entity.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/Microsoft.AspNet.Diagnostics.Entity.dll": {}
         }
       },
       "Microsoft.AspNet.FileProviders.Abstractions/1.0.0-rc1-final": {
@@ -2836,20 +3047,6 @@
           "lib/dotnet5.4/Microsoft.Extensions.Configuration.Json.dll": {}
         }
       },
-      "Microsoft.Extensions.Configuration.UserSecrets/1.0.0-rc1-final": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
-          "System.Runtime": "4.0.21-beta-23516",
-          "System.Runtime.Serialization.Primitives": "4.0.11-beta-23409"
-        },
-        "compile": {
-          "lib/dotnet5.4/Microsoft.Extensions.Configuration.UserSecrets.dll": {}
-        },
-        "runtime": {
-          "lib/dotnet5.4/Microsoft.Extensions.Configuration.UserSecrets.dll": {}
-        }
-      },
       "Microsoft.Extensions.DependencyInjection/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -3077,6 +3274,24 @@
           "lib/dotnet5.4/Microsoft.Extensions.WebEncoders.Core.dll": {}
         }
       },
+      "Microsoft.Framework.DependencyInjection.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "System.ComponentModel": "4.0.1-beta-23409",
+          "System.Diagnostics.Debug": "4.0.11-beta-23409",
+          "System.Globalization": "4.0.11-beta-23409",
+          "System.Linq": "4.0.1-beta-23409",
+          "System.Linq.Expressions": "4.0.11-beta-23409",
+          "System.Reflection": "4.1.0-beta-23225",
+          "System.Resources.ResourceManager": "4.0.1-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        }
+      },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -3093,6 +3308,27 @@
         },
         "runtime": {
           "lib/dotnet5.4/Microsoft.Net.Http.Headers.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.Web.BrowserLink.Loader/14.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.FileProviders.Physical": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.PageExecutionInstrumentation.Interfaces": "1.0.0-rc1-final",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc1-final",
+          "Microsoft.Win32.Registry": "4.0.0-beta-23516",
+          "System.Collections": "4.0.10",
+          "System.Net.Sockets": "4.0.10-beta-23123",
+          "System.Reflection.Extensions": "4.0.0",
+          "System.Runtime.InteropServices": "4.0.20",
+          "System.Threading": "4.0.10"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
         }
       },
       "Microsoft.Win32.Primitives/4.0.0": {
@@ -3256,6 +3492,21 @@
         },
         "runtime": {
           "lib/dotnet5.4/System.ComponentModel.Annotations.dll": {}
+        }
+      },
+      "System.ComponentModel.EventBasedAsync/4.0.10": {
+        "type": "package",
+        "dependencies": {
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime": "4.0.20",
+          "System.Threading": "4.0.10",
+          "System.Threading.Tasks": "4.0.10"
+        },
+        "compile": {
+          "ref/dotnet/System.ComponentModel.EventBasedAsync.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/System.ComponentModel.EventBasedAsync.dll": {}
         }
       },
       "System.ComponentModel.Primitives/4.0.0": {
@@ -3583,6 +3834,18 @@
           "ref/dotnet5.4/System.Net.Primitives.dll": {}
         }
       },
+      "System.Net.Sockets/4.0.10-beta-23123": {
+        "type": "package",
+        "dependencies": {
+          "System.Private.Networking": "4.0.0"
+        },
+        "compile": {
+          "ref/dotnet/System.Net.Sockets.dll": {}
+        },
+        "runtime": {
+          "lib/DNXCore50/System.Net.Sockets.dll": {}
+        }
+      },
       "System.Net.WebSockets/4.0.0-beta-23516": {
         "type": "package",
         "dependencies": {
@@ -3629,13 +3892,43 @@
           "lib/dotnet5.4/System.ObjectModel.dll": {}
         }
       },
+      "System.Private.Networking/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.Primitives": "4.0.0",
+          "System.Collections": "4.0.10",
+          "System.Collections.Concurrent": "4.0.0",
+          "System.Collections.NonGeneric": "4.0.0",
+          "System.ComponentModel.EventBasedAsync": "4.0.10",
+          "System.Diagnostics.Debug": "4.0.10",
+          "System.Diagnostics.Tracing": "4.0.20",
+          "System.Globalization": "4.0.10",
+          "System.IO": "4.0.10",
+          "System.IO.FileSystem": "4.0.0",
+          "System.IO.FileSystem.Primitives": "4.0.0",
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime": "4.0.20",
+          "System.Runtime.Extensions": "4.0.10",
+          "System.Runtime.Handles": "4.0.0",
+          "System.Runtime.InteropServices": "4.0.20",
+          "System.Threading": "4.0.10",
+          "System.Threading.Overlapped": "4.0.0",
+          "System.Threading.Tasks": "4.0.10"
+        },
+        "compile": {
+          "ref/dnxcore50/_._": {}
+        },
+        "runtime": {
+          "lib/DNXCore50/System.Private.Networking.dll": {}
+        }
+      },
       "System.Private.Uri/4.0.1-beta-23516": {
         "type": "package",
         "compile": {
           "ref/dnxcore50/_._": {}
         }
       },
-      "System.Reflection/4.1.0-beta-23225": {
+      "System.Reflection/4.1.0-beta-23516": {
         "type": "package",
         "dependencies": {
           "System.IO": "4.0.0",
@@ -3643,7 +3936,7 @@
           "System.Runtime": "4.0.20"
         },
         "compile": {
-          "ref/dotnet/System.Reflection.dll": {}
+          "ref/dotnet5.4/System.Reflection.dll": {}
         },
         "runtime": {
           "lib/DNXCore50/System.Reflection.dll": {}
@@ -3836,19 +4129,6 @@
           "lib/DNXCore50/System.Runtime.Loader.dll": {}
         }
       },
-      "System.Runtime.Serialization.Primitives/4.0.11-beta-23409": {
-        "type": "package",
-        "dependencies": {
-          "System.Resources.ResourceManager": "4.0.0",
-          "System.Runtime": "4.0.20"
-        },
-        "compile": {
-          "ref/dotnet/System.Runtime.Serialization.Primitives.dll": {}
-        },
-        "runtime": {
-          "lib/dotnet/System.Runtime.Serialization.Primitives.dll": {}
-        }
-      },
       "System.Security.Claims/4.0.1-beta-23516": {
         "type": "package",
         "dependencies": {
@@ -4015,6 +4295,19 @@
           "ref/dotnet5.4/System.Threading.dll": {}
         }
       },
+      "System.Threading.Overlapped/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime": "4.0.0",
+          "System.Runtime.Handles": "4.0.0"
+        },
+        "compile": {
+          "ref/dotnet/System.Threading.Overlapped.dll": {}
+        },
+        "runtime": {
+          "lib/DNXCore50/System.Threading.Overlapped.dll": {}
+        }
+      },
       "System.Threading.Tasks/4.0.11-beta-23516": {
         "type": "package",
         "dependencies": {
@@ -4133,6 +4426,61 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x86": {
+      "Autofac/4.0.0-rc1-177": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Autofac.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Autofac.dll": {}
+        }
+      },
+      "Autofac.Extensions.DependencyInjection/4.0.0-rc1-177": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "4.0.0-rc1-177",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/Autofac.Extensions.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Autofac.Extensions.DependencyInjection.dll": {}
+        }
+      },
+      "Autofac.Framework.DependencyInjection/4.0.0-beta8-157": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "4.0.0-beta8-157",
+          "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta8"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Autofac.dll": {},
+          "lib/dnx451/Autofac.Framework.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Autofac.dll": {},
+          "lib/dnx451/Autofac.Framework.DependencyInjection.dll": {}
+        }
+      },
       "EntityFramework.Commands/7.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -4454,6 +4802,33 @@
           "lib/net451/Microsoft.AspNet.DataProtection.Abstractions.dll": {}
         }
       },
+      "Microsoft.AspNet.Diagnostics/1.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Diagnostics.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.FileProviders.Physical": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Http.Extensions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.WebUtilities": "1.0.0-rc1-final",
+          "Microsoft.Dnx.Compilation.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.OptionsModel": "1.0.0-rc1-final",
+          "Microsoft.Extensions.WebEncoders.Core": "1.0.0-rc1-final",
+          "System.Diagnostics.DiagnosticSource": "4.0.0-beta-23516"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core",
+          "System.Runtime"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.AspNet.Diagnostics.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.AspNet.Diagnostics.dll": {}
+        }
+      },
       "Microsoft.AspNet.Diagnostics.Abstractions/1.0.0-rc1-final": {
         "type": "package",
         "frameworkAssemblies": [
@@ -4467,6 +4842,27 @@
         },
         "runtime": {
           "lib/net451/Microsoft.AspNet.Diagnostics.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Diagnostics.Entity/7.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework.Relational": "7.0.0-rc1-final",
+          "Microsoft.AspNet.Diagnostics": "1.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Configuration",
+          "System.Core",
+          "System.Threading.Tasks"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.AspNet.Diagnostics.Entity.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.AspNet.Diagnostics.Entity.dll": {}
         }
       },
       "Microsoft.AspNet.FileProviders.Abstractions/1.0.0-rc1-final": {
@@ -5397,24 +5793,6 @@
           "lib/net451/Microsoft.Extensions.Configuration.Json.dll": {}
         }
       },
-      "Microsoft.Extensions.Configuration.UserSecrets/1.0.0-rc1-final": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/net451/Microsoft.Extensions.Configuration.UserSecrets.dll": {}
-        },
-        "runtime": {
-          "lib/net451/Microsoft.Extensions.Configuration.UserSecrets.dll": {}
-        }
-      },
       "Microsoft.Extensions.DependencyInjection/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -5634,6 +6012,21 @@
           "lib/net451/Microsoft.Extensions.WebEncoders.Core.dll": {}
         }
       },
+      "Microsoft.Framework.DependencyInjection.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        }
+      },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
         "type": "package",
         "frameworkAssemblies": [
@@ -5647,6 +6040,27 @@
         },
         "runtime": {
           "lib/net451/Microsoft.Net.Http.Headers.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.Web.BrowserLink.Loader/14.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.FileProviders.Physical": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.PageExecutionInstrumentation.Interfaces": "1.0.0-rc1-final",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
         }
       },
       "Newtonsoft.Json/6.0.6": {
@@ -5880,6 +6294,61 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x64": {
+      "Autofac/4.0.0-rc1-177": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Autofac.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Autofac.dll": {}
+        }
+      },
+      "Autofac.Extensions.DependencyInjection/4.0.0-rc1-177": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "4.0.0-rc1-177",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/Autofac.Extensions.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Autofac.Extensions.DependencyInjection.dll": {}
+        }
+      },
+      "Autofac.Framework.DependencyInjection/4.0.0-beta8-157": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "4.0.0-beta8-157",
+          "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta8"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Autofac.dll": {},
+          "lib/dnx451/Autofac.Framework.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Autofac.dll": {},
+          "lib/dnx451/Autofac.Framework.DependencyInjection.dll": {}
+        }
+      },
       "EntityFramework.Commands/7.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -6201,6 +6670,33 @@
           "lib/net451/Microsoft.AspNet.DataProtection.Abstractions.dll": {}
         }
       },
+      "Microsoft.AspNet.Diagnostics/1.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Diagnostics.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.FileProviders.Physical": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Http.Extensions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.WebUtilities": "1.0.0-rc1-final",
+          "Microsoft.Dnx.Compilation.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.OptionsModel": "1.0.0-rc1-final",
+          "Microsoft.Extensions.WebEncoders.Core": "1.0.0-rc1-final",
+          "System.Diagnostics.DiagnosticSource": "4.0.0-beta-23516"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core",
+          "System.Runtime"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.AspNet.Diagnostics.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.AspNet.Diagnostics.dll": {}
+        }
+      },
       "Microsoft.AspNet.Diagnostics.Abstractions/1.0.0-rc1-final": {
         "type": "package",
         "frameworkAssemblies": [
@@ -6214,6 +6710,27 @@
         },
         "runtime": {
           "lib/net451/Microsoft.AspNet.Diagnostics.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Diagnostics.Entity/7.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework.Relational": "7.0.0-rc1-final",
+          "Microsoft.AspNet.Diagnostics": "1.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Configuration",
+          "System.Core",
+          "System.Threading.Tasks"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.AspNet.Diagnostics.Entity.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.AspNet.Diagnostics.Entity.dll": {}
         }
       },
       "Microsoft.AspNet.FileProviders.Abstractions/1.0.0-rc1-final": {
@@ -7144,24 +7661,6 @@
           "lib/net451/Microsoft.Extensions.Configuration.Json.dll": {}
         }
       },
-      "Microsoft.Extensions.Configuration.UserSecrets/1.0.0-rc1-final": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/net451/Microsoft.Extensions.Configuration.UserSecrets.dll": {}
-        },
-        "runtime": {
-          "lib/net451/Microsoft.Extensions.Configuration.UserSecrets.dll": {}
-        }
-      },
       "Microsoft.Extensions.DependencyInjection/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -7381,6 +7880,21 @@
           "lib/net451/Microsoft.Extensions.WebEncoders.Core.dll": {}
         }
       },
+      "Microsoft.Framework.DependencyInjection.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        }
+      },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
         "type": "package",
         "frameworkAssemblies": [
@@ -7394,6 +7908,27 @@
         },
         "runtime": {
           "lib/net451/Microsoft.Net.Http.Headers.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.Web.BrowserLink.Loader/14.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.FileProviders.Physical": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.PageExecutionInstrumentation.Interfaces": "1.0.0-rc1-final",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
         }
       },
       "Newtonsoft.Json/6.0.6": {
@@ -7627,6 +8162,61 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x86": {
+      "Autofac/4.0.0-rc1-177": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Collections.Concurrent": "4.0.11-beta-23516",
+          "System.ComponentModel": "4.0.1-beta-23516",
+          "System.Diagnostics.Debug": "4.0.11-beta-23516",
+          "System.Diagnostics.Tools": "4.0.1-beta-23516",
+          "System.Globalization": "4.0.11-beta-23516",
+          "System.Linq": "4.0.1-beta-23516",
+          "System.Linq.Expressions": "4.0.11-beta-23516",
+          "System.Reflection": "4.1.0-beta-23516",
+          "System.Reflection.Extensions": "4.0.1-beta-23516",
+          "System.Resources.ResourceManager": "4.0.1-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading.Tasks": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dnxcore50/Autofac.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Autofac.dll": {}
+        }
+      },
+      "Autofac.Extensions.DependencyInjection/4.0.0-rc1-177": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "4.0.0-rc1-177",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading.Tasks": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/Autofac.Extensions.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/Autofac.Extensions.DependencyInjection.dll": {}
+        }
+      },
+      "Autofac.Framework.DependencyInjection/4.0.0-beta8-157": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "4.0.0-beta8-157",
+          "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta8"
+        },
+        "compile": {
+          "lib/dotnet/Autofac.dll": {},
+          "lib/dotnet/Autofac.Framework.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/Autofac.dll": {},
+          "lib/dotnet/Autofac.Framework.DependencyInjection.dll": {}
+        }
+      },
       "EntityFramework.Commands/7.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -7885,6 +8475,27 @@
           "lib/dotnet5.4/Microsoft.AspNet.DataProtection.Abstractions.dll": {}
         }
       },
+      "Microsoft.AspNet.Diagnostics/1.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Diagnostics.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.FileProviders.Physical": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Http.Extensions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.WebUtilities": "1.0.0-rc1-final",
+          "Microsoft.Dnx.Compilation.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.OptionsModel": "1.0.0-rc1-final",
+          "Microsoft.Extensions.WebEncoders.Core": "1.0.0-rc1-final",
+          "System.Diagnostics.DiagnosticSource": "4.0.0-beta-23516",
+          "System.Reflection.Extensions": "4.0.1-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/Microsoft.AspNet.Diagnostics.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/Microsoft.AspNet.Diagnostics.dll": {}
+        }
+      },
       "Microsoft.AspNet.Diagnostics.Abstractions/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -7896,6 +8507,20 @@
         },
         "runtime": {
           "lib/dotnet5.4/Microsoft.AspNet.Diagnostics.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Diagnostics.Entity/7.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework.Relational": "7.0.0-rc1-final",
+          "Microsoft.AspNet.Diagnostics": "1.0.0-rc1-final",
+          "System.Threading": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/Microsoft.AspNet.Diagnostics.Entity.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/Microsoft.AspNet.Diagnostics.Entity.dll": {}
         }
       },
       "Microsoft.AspNet.FileProviders.Abstractions/1.0.0-rc1-final": {
@@ -8719,20 +9344,6 @@
           "lib/dotnet5.4/Microsoft.Extensions.Configuration.Json.dll": {}
         }
       },
-      "Microsoft.Extensions.Configuration.UserSecrets/1.0.0-rc1-final": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
-          "System.Runtime": "4.0.21-beta-23516",
-          "System.Runtime.Serialization.Primitives": "4.0.11-beta-23409"
-        },
-        "compile": {
-          "lib/dotnet5.4/Microsoft.Extensions.Configuration.UserSecrets.dll": {}
-        },
-        "runtime": {
-          "lib/dotnet5.4/Microsoft.Extensions.Configuration.UserSecrets.dll": {}
-        }
-      },
       "Microsoft.Extensions.DependencyInjection/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -8960,6 +9571,24 @@
           "lib/dotnet5.4/Microsoft.Extensions.WebEncoders.Core.dll": {}
         }
       },
+      "Microsoft.Framework.DependencyInjection.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "System.ComponentModel": "4.0.1-beta-23409",
+          "System.Diagnostics.Debug": "4.0.11-beta-23409",
+          "System.Globalization": "4.0.11-beta-23409",
+          "System.Linq": "4.0.1-beta-23409",
+          "System.Linq.Expressions": "4.0.11-beta-23409",
+          "System.Reflection": "4.1.0-beta-23225",
+          "System.Resources.ResourceManager": "4.0.1-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        }
+      },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -8976,6 +9605,27 @@
         },
         "runtime": {
           "lib/dotnet5.4/Microsoft.Net.Http.Headers.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.Web.BrowserLink.Loader/14.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.FileProviders.Physical": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.PageExecutionInstrumentation.Interfaces": "1.0.0-rc1-final",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc1-final",
+          "Microsoft.Win32.Registry": "4.0.0-beta-23516",
+          "System.Collections": "4.0.10",
+          "System.Net.Sockets": "4.0.10-beta-23123",
+          "System.Reflection.Extensions": "4.0.0",
+          "System.Runtime.InteropServices": "4.0.20",
+          "System.Threading": "4.0.10"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
         }
       },
       "Microsoft.Win32.Primitives/4.0.0": {
@@ -9976,7 +10626,7 @@
           "ref/dnxcore50/_._": {}
         }
       },
-      "System.Reflection/4.1.0-beta-23225": {
+      "System.Reflection/4.1.0-beta-23516": {
         "type": "package",
         "dependencies": {
           "System.IO": "4.0.0",
@@ -9984,7 +10634,7 @@
           "System.Runtime": "4.0.20"
         },
         "compile": {
-          "ref/dotnet/System.Reflection.dll": {}
+          "ref/dotnet5.4/System.Reflection.dll": {}
         },
         "runtime": {
           "lib/DNXCore50/System.Reflection.dll": {}
@@ -10205,19 +10855,6 @@
         },
         "runtime": {
           "lib/dotnet/System.Runtime.Numerics.dll": {}
-        }
-      },
-      "System.Runtime.Serialization.Primitives/4.0.11-beta-23409": {
-        "type": "package",
-        "dependencies": {
-          "System.Resources.ResourceManager": "4.0.0",
-          "System.Runtime": "4.0.20"
-        },
-        "compile": {
-          "ref/dotnet/System.Runtime.Serialization.Primitives.dll": {}
-        },
-        "runtime": {
-          "lib/dotnet/System.Runtime.Serialization.Primitives.dll": {}
         }
       },
       "System.Security.Claims/4.0.1-beta-23516": {
@@ -10560,6 +11197,61 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x64": {
+      "Autofac/4.0.0-rc1-177": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Collections.Concurrent": "4.0.11-beta-23516",
+          "System.ComponentModel": "4.0.1-beta-23516",
+          "System.Diagnostics.Debug": "4.0.11-beta-23516",
+          "System.Diagnostics.Tools": "4.0.1-beta-23516",
+          "System.Globalization": "4.0.11-beta-23516",
+          "System.Linq": "4.0.1-beta-23516",
+          "System.Linq.Expressions": "4.0.11-beta-23516",
+          "System.Reflection": "4.1.0-beta-23516",
+          "System.Reflection.Extensions": "4.0.1-beta-23516",
+          "System.Resources.ResourceManager": "4.0.1-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading.Tasks": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dnxcore50/Autofac.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Autofac.dll": {}
+        }
+      },
+      "Autofac.Extensions.DependencyInjection/4.0.0-rc1-177": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "4.0.0-rc1-177",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading.Tasks": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/Autofac.Extensions.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/Autofac.Extensions.DependencyInjection.dll": {}
+        }
+      },
+      "Autofac.Framework.DependencyInjection/4.0.0-beta8-157": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "4.0.0-beta8-157",
+          "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta8"
+        },
+        "compile": {
+          "lib/dotnet/Autofac.dll": {},
+          "lib/dotnet/Autofac.Framework.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/Autofac.dll": {},
+          "lib/dotnet/Autofac.Framework.DependencyInjection.dll": {}
+        }
+      },
       "EntityFramework.Commands/7.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -10818,6 +11510,27 @@
           "lib/dotnet5.4/Microsoft.AspNet.DataProtection.Abstractions.dll": {}
         }
       },
+      "Microsoft.AspNet.Diagnostics/1.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Diagnostics.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.FileProviders.Physical": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Http.Extensions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.WebUtilities": "1.0.0-rc1-final",
+          "Microsoft.Dnx.Compilation.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.OptionsModel": "1.0.0-rc1-final",
+          "Microsoft.Extensions.WebEncoders.Core": "1.0.0-rc1-final",
+          "System.Diagnostics.DiagnosticSource": "4.0.0-beta-23516",
+          "System.Reflection.Extensions": "4.0.1-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/Microsoft.AspNet.Diagnostics.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/Microsoft.AspNet.Diagnostics.dll": {}
+        }
+      },
       "Microsoft.AspNet.Diagnostics.Abstractions/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -10829,6 +11542,20 @@
         },
         "runtime": {
           "lib/dotnet5.4/Microsoft.AspNet.Diagnostics.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Diagnostics.Entity/7.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework.Relational": "7.0.0-rc1-final",
+          "Microsoft.AspNet.Diagnostics": "1.0.0-rc1-final",
+          "System.Threading": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/Microsoft.AspNet.Diagnostics.Entity.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/Microsoft.AspNet.Diagnostics.Entity.dll": {}
         }
       },
       "Microsoft.AspNet.FileProviders.Abstractions/1.0.0-rc1-final": {
@@ -11652,20 +12379,6 @@
           "lib/dotnet5.4/Microsoft.Extensions.Configuration.Json.dll": {}
         }
       },
-      "Microsoft.Extensions.Configuration.UserSecrets/1.0.0-rc1-final": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
-          "System.Runtime": "4.0.21-beta-23516",
-          "System.Runtime.Serialization.Primitives": "4.0.11-beta-23409"
-        },
-        "compile": {
-          "lib/dotnet5.4/Microsoft.Extensions.Configuration.UserSecrets.dll": {}
-        },
-        "runtime": {
-          "lib/dotnet5.4/Microsoft.Extensions.Configuration.UserSecrets.dll": {}
-        }
-      },
       "Microsoft.Extensions.DependencyInjection/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -11893,6 +12606,24 @@
           "lib/dotnet5.4/Microsoft.Extensions.WebEncoders.Core.dll": {}
         }
       },
+      "Microsoft.Framework.DependencyInjection.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "System.ComponentModel": "4.0.1-beta-23409",
+          "System.Diagnostics.Debug": "4.0.11-beta-23409",
+          "System.Globalization": "4.0.11-beta-23409",
+          "System.Linq": "4.0.1-beta-23409",
+          "System.Linq.Expressions": "4.0.11-beta-23409",
+          "System.Reflection": "4.1.0-beta-23225",
+          "System.Resources.ResourceManager": "4.0.1-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        }
+      },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -11909,6 +12640,27 @@
         },
         "runtime": {
           "lib/dotnet5.4/Microsoft.Net.Http.Headers.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.Web.BrowserLink.Loader/14.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.FileProviders.Physical": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.PageExecutionInstrumentation.Interfaces": "1.0.0-rc1-final",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc1-final",
+          "Microsoft.Win32.Registry": "4.0.0-beta-23516",
+          "System.Collections": "4.0.10",
+          "System.Net.Sockets": "4.0.10-beta-23123",
+          "System.Reflection.Extensions": "4.0.0",
+          "System.Runtime.InteropServices": "4.0.20",
+          "System.Threading": "4.0.10"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
         }
       },
       "Microsoft.Win32.Primitives/4.0.0": {
@@ -12909,7 +13661,7 @@
           "ref/dnxcore50/_._": {}
         }
       },
-      "System.Reflection/4.1.0-beta-23225": {
+      "System.Reflection/4.1.0-beta-23516": {
         "type": "package",
         "dependencies": {
           "System.IO": "4.0.0",
@@ -12917,7 +13669,7 @@
           "System.Runtime": "4.0.20"
         },
         "compile": {
-          "ref/dotnet/System.Reflection.dll": {}
+          "ref/dotnet5.4/System.Reflection.dll": {}
         },
         "runtime": {
           "lib/DNXCore50/System.Reflection.dll": {}
@@ -13138,19 +13890,6 @@
         },
         "runtime": {
           "lib/dotnet/System.Runtime.Numerics.dll": {}
-        }
-      },
-      "System.Runtime.Serialization.Primitives/4.0.11-beta-23409": {
-        "type": "package",
-        "dependencies": {
-          "System.Resources.ResourceManager": "4.0.0",
-          "System.Runtime": "4.0.20"
-        },
-        "compile": {
-          "ref/dotnet/System.Runtime.Serialization.Primitives.dll": {}
-        },
-        "runtime": {
-          "lib/dotnet/System.Runtime.Serialization.Primitives.dll": {}
         }
       },
       "System.Security.Claims/4.0.1-beta-23516": {
@@ -13494,6 +14233,59 @@
     }
   },
   "libraries": {
+    "Autofac/4.0.0-rc1-177": {
+      "type": "package",
+      "sha512": "cTSfTca0qWl3Zd68iMl2bH8e4RyGL/Q7EUT0PmAzCSoitSlrHu4zmByhP/f+KGGSuRqWHFYoMEEOanvTviEr4g==",
+      "files": [
+        "Autofac.4.0.0-rc1-177.nupkg",
+        "Autofac.4.0.0-rc1-177.nupkg.sha512",
+        "Autofac.nuspec",
+        "lib/dnxcore50/Autofac.dll",
+        "lib/dnxcore50/Autofac.xml",
+        "lib/dotnet5.2/Autofac.dll",
+        "lib/dotnet5.2/Autofac.xml",
+        "lib/net45/Autofac.dll",
+        "lib/net45/Autofac.xml",
+        "lib/win/Autofac.dll",
+        "lib/win/Autofac.xml"
+      ]
+    },
+    "Autofac.Extensions.DependencyInjection/4.0.0-rc1-177": {
+      "type": "package",
+      "sha512": "FEmKbGpwAza4MW3Az8v+8V42wuRYDFX+8LpTl8XzLi9VcdLNlWvErdk2q74u4+a4UHbvpAQ62tfh5ctMnDa9yA==",
+      "files": [
+        "Autofac.Extensions.DependencyInjection.4.0.0-rc1-177.nupkg",
+        "Autofac.Extensions.DependencyInjection.4.0.0-rc1-177.nupkg.sha512",
+        "Autofac.Extensions.DependencyInjection.nuspec",
+        "lib/dotnet5.4/Autofac.Extensions.DependencyInjection.dll",
+        "lib/dotnet5.4/Autofac.Extensions.DependencyInjection.xml",
+        "lib/net451/Autofac.Extensions.DependencyInjection.dll",
+        "lib/net451/Autofac.Extensions.DependencyInjection.xml",
+        "lib/netcore50/Autofac.Extensions.DependencyInjection.dll",
+        "lib/netcore50/Autofac.Extensions.DependencyInjection.xml"
+      ]
+    },
+    "Autofac.Framework.DependencyInjection/4.0.0-beta8-157": {
+      "type": "package",
+      "sha512": "onkvcXyk76jNxnb9wm50spSoU4l73qsf5PTa+axZXHnpmbA6/onG67jZpUbUDfiYFx8LwnE69KYzrv3UpC4D/g==",
+      "files": [
+        "Autofac.Framework.DependencyInjection.4.0.0-beta8-157.nupkg",
+        "Autofac.Framework.DependencyInjection.4.0.0-beta8-157.nupkg.sha512",
+        "Autofac.Framework.DependencyInjection.nuspec",
+        "lib/dnx451/Autofac.dll",
+        "lib/dnx451/Autofac.Framework.DependencyInjection.dll",
+        "lib/dnx451/Autofac.Framework.DependencyInjection.xml",
+        "lib/dnx451/Autofac.xml",
+        "lib/dotnet/Autofac.dll",
+        "lib/dotnet/Autofac.Framework.DependencyInjection.dll",
+        "lib/dotnet/Autofac.Framework.DependencyInjection.xml",
+        "lib/dotnet/Autofac.xml",
+        "lib/net45/Autofac.dll",
+        "lib/net45/Autofac.Framework.DependencyInjection.dll",
+        "lib/net45/Autofac.Framework.DependencyInjection.xml",
+        "lib/net45/Autofac.xml"
+      ]
+    },
     "EntityFramework.Commands/7.0.0-rc1-final": {
       "type": "package",
       "serviceable": true,
@@ -13730,6 +14522,20 @@
         "Microsoft.AspNet.DataProtection.Abstractions.nuspec"
       ]
     },
+    "Microsoft.AspNet.Diagnostics/1.0.0-rc1-final": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "PlLhXpe74DUMEanyFNvo+A96zD465usPOxu2iAqREnfcpagNJY4dn6uQxDE04BY6XcqPaYAYcrZYyKRfn/pTIg==",
+      "files": [
+        "lib/dotnet5.4/Microsoft.AspNet.Diagnostics.dll",
+        "lib/dotnet5.4/Microsoft.AspNet.Diagnostics.xml",
+        "lib/net451/Microsoft.AspNet.Diagnostics.dll",
+        "lib/net451/Microsoft.AspNet.Diagnostics.xml",
+        "Microsoft.AspNet.Diagnostics.1.0.0-rc1-final.nupkg",
+        "Microsoft.AspNet.Diagnostics.1.0.0-rc1-final.nupkg.sha512",
+        "Microsoft.AspNet.Diagnostics.nuspec"
+      ]
+    },
     "Microsoft.AspNet.Diagnostics.Abstractions/1.0.0-rc1-final": {
       "type": "package",
       "serviceable": true,
@@ -13742,6 +14548,20 @@
         "Microsoft.AspNet.Diagnostics.Abstractions.1.0.0-rc1-final.nupkg",
         "Microsoft.AspNet.Diagnostics.Abstractions.1.0.0-rc1-final.nupkg.sha512",
         "Microsoft.AspNet.Diagnostics.Abstractions.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.Diagnostics.Entity/7.0.0-rc1-final": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "hlOWYlYXpVSEM4wcTzNwZKvJWGUgkZQjOG12FkJFIEMyd8qT8jS20kp92kT2XeU8SBxb1kUAnTBdtOr5VRI+hQ==",
+      "files": [
+        "lib/dotnet5.4/Microsoft.AspNet.Diagnostics.Entity.dll",
+        "lib/dotnet5.4/Microsoft.AspNet.Diagnostics.Entity.xml",
+        "lib/net451/Microsoft.AspNet.Diagnostics.Entity.dll",
+        "lib/net451/Microsoft.AspNet.Diagnostics.Entity.xml",
+        "Microsoft.AspNet.Diagnostics.Entity.7.0.0-rc1-final.nupkg",
+        "Microsoft.AspNet.Diagnostics.Entity.7.0.0-rc1-final.nupkg.sha512",
+        "Microsoft.AspNet.Diagnostics.Entity.nuspec"
       ]
     },
     "Microsoft.AspNet.FileProviders.Abstractions/1.0.0-rc1-final": {
@@ -14498,20 +15318,6 @@
         "Microsoft.Extensions.Configuration.Json.nuspec"
       ]
     },
-    "Microsoft.Extensions.Configuration.UserSecrets/1.0.0-rc1-final": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "m2WaXGNWRrbpWquen8PS1oB8GdG5tCSWhXAmFbhacj1mhz3ojFy0TDUZPbx87TX2ZQNNp6MYfzO5Z73hlM47Bw==",
-      "files": [
-        "lib/dotnet5.4/Microsoft.Extensions.Configuration.UserSecrets.dll",
-        "lib/dotnet5.4/Microsoft.Extensions.Configuration.UserSecrets.xml",
-        "lib/net451/Microsoft.Extensions.Configuration.UserSecrets.dll",
-        "lib/net451/Microsoft.Extensions.Configuration.UserSecrets.xml",
-        "Microsoft.Extensions.Configuration.UserSecrets.1.0.0-rc1-final.nupkg",
-        "Microsoft.Extensions.Configuration.UserSecrets.1.0.0-rc1-final.nupkg.sha512",
-        "Microsoft.Extensions.Configuration.UserSecrets.nuspec"
-      ]
-    },
     "Microsoft.Extensions.DependencyInjection/1.0.0-rc1-final": {
       "type": "package",
       "serviceable": true,
@@ -14706,6 +15512,24 @@
         "Microsoft.Extensions.WebEncoders.Core.nuspec"
       ]
     },
+    "Microsoft.Framework.DependencyInjection.Abstractions/1.0.0-beta8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "7WL9hy+7bYDyBtIrrW5tw57dChBcizjSyuD0p5pVkay+gSseLqvAk72a4KldMmRgH//7t74d/YVrTvLhw83b7w==",
+      "files": [
+        "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.dll",
+        "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.xml",
+        "lib/dnxcore50/Microsoft.Framework.DependencyInjection.Abstractions.dll",
+        "lib/dnxcore50/Microsoft.Framework.DependencyInjection.Abstractions.xml",
+        "lib/dotnet/Microsoft.Framework.DependencyInjection.Abstractions.dll",
+        "lib/dotnet/Microsoft.Framework.DependencyInjection.Abstractions.xml",
+        "lib/net45/Microsoft.Framework.DependencyInjection.Abstractions.dll",
+        "lib/net45/Microsoft.Framework.DependencyInjection.Abstractions.xml",
+        "Microsoft.Framework.DependencyInjection.Abstractions.1.0.0-beta8.nupkg",
+        "Microsoft.Framework.DependencyInjection.Abstractions.1.0.0-beta8.nupkg.sha512",
+        "Microsoft.Framework.DependencyInjection.Abstractions.nuspec"
+      ]
+    },
     "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
       "type": "package",
       "serviceable": true,
@@ -14718,6 +15542,19 @@
         "Microsoft.Net.Http.Headers.1.0.0-rc1-final.nupkg",
         "Microsoft.Net.Http.Headers.1.0.0-rc1-final.nupkg.sha512",
         "Microsoft.Net.Http.Headers.nuspec"
+      ]
+    },
+    "Microsoft.VisualStudio.Web.BrowserLink.Loader/14.0.0-rc1-final": {
+      "type": "package",
+      "sha512": "L8QBjp1tfPA3j+r9eKtMlebX/k+7pIGxeHZ/ZjkNgt8RLVEOyw9HPMs2Wetav0P3gCIM7YIfIzXV22c19yI83Q==",
+      "files": [
+        "lib/dnx451/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll",
+        "lib/dnx451/Microsoft.VisualStudio.Web.BrowserLink.Loader.xml",
+        "lib/dnxcore50/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll",
+        "lib/dnxcore50/Microsoft.VisualStudio.Web.BrowserLink.Loader.xml",
+        "Microsoft.VisualStudio.Web.BrowserLink.Loader.14.0.0-rc1-final.nupkg",
+        "Microsoft.VisualStudio.Web.BrowserLink.Loader.14.0.0-rc1-final.nupkg.sha512",
+        "Microsoft.VisualStudio.Web.BrowserLink.Loader.nuspec"
       ]
     },
     "Microsoft.Win32.Primitives/4.0.0": {
@@ -16853,6 +17690,35 @@
         "System.Net.Security.nuspec"
       ]
     },
+    "System.Net.Sockets/4.0.10-beta-23123": {
+      "type": "package",
+      "sha512": "J6O9EyPZuOiL3tvTPY8j745In3d7bb5D255WopeY3RVvxvTtAzBIUaN1Z19wBGWoa0gT19uqQE62E6fO0zODyg==",
+      "files": [
+        "lib/DNXCore50/System.Net.Sockets.dll",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "ref/dotnet/de/System.Net.Sockets.xml",
+        "ref/dotnet/es/System.Net.Sockets.xml",
+        "ref/dotnet/fr/System.Net.Sockets.xml",
+        "ref/dotnet/it/System.Net.Sockets.xml",
+        "ref/dotnet/ja/System.Net.Sockets.xml",
+        "ref/dotnet/ko/System.Net.Sockets.xml",
+        "ref/dotnet/ru/System.Net.Sockets.xml",
+        "ref/dotnet/System.Net.Sockets.dll",
+        "ref/dotnet/System.Net.Sockets.xml",
+        "ref/dotnet/zh-hans/System.Net.Sockets.xml",
+        "ref/dotnet/zh-hant/System.Net.Sockets.xml",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "System.Net.Sockets.4.0.10-beta-23123.nupkg",
+        "System.Net.Sockets.4.0.10-beta-23123.nupkg.sha512",
+        "System.Net.Sockets.nuspec"
+      ]
+    },
     "System.Net.Sockets/4.1.0-beta-23225": {
       "type": "package",
       "serviceable": true,
@@ -16993,6 +17859,20 @@
         "System.ObjectModel.nuspec"
       ]
     },
+    "System.Private.Networking/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "RUEqdBdJjISC65dO8l4LdN7vTdlXH+attUpKnauDUHVtLbIKdlDB9LKoLzCQsTQRP7vzUJHWYXznHJBkjAA7yA==",
+      "files": [
+        "lib/DNXCore50/System.Private.Networking.dll",
+        "lib/netcore50/System.Private.Networking.dll",
+        "ref/dnxcore50/_._",
+        "ref/netcore50/_._",
+        "System.Private.Networking.4.0.0.nupkg",
+        "System.Private.Networking.4.0.0.nupkg.sha512",
+        "System.Private.Networking.nuspec"
+      ]
+    },
     "System.Private.Networking/4.0.1-beta-23516": {
       "type": "package",
       "serviceable": true,
@@ -17067,27 +17947,67 @@
         "System.Reflection.nuspec"
       ]
     },
-    "System.Reflection/4.1.0-beta-23225": {
+    "System.Reflection/4.1.0-beta-23516": {
       "type": "package",
       "serviceable": true,
-      "sha512": "WbLtaCxoe5XdqEyZuGpemSQ8YBJ8cj11zx+yxOxJfHbNrmu7oMQ29+J50swaqg3soUc3BVBMqfIhb/7gocDHQA==",
+      "sha512": "wfrnDfk8p2cqJQY3TTHsJRmf3cE3wa6BacncCn4dO58lVwQNNe9ASdLrLJZlMviAjx8+1fUpj6NX7leIOyaBJA==",
       "files": [
         "lib/DNXCore50/System.Reflection.dll",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
-        "lib/net46/_._",
+        "lib/net45/_._",
+        "lib/net46/System.Reflection.dll",
         "lib/netcore50/System.Reflection.dll",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
         "lib/xamarinios10/_._",
         "lib/xamarinmac20/_._",
-        "ref/dotnet/System.Reflection.dll",
+        "ref/dotnet5.1/de/System.Reflection.xml",
+        "ref/dotnet5.1/es/System.Reflection.xml",
+        "ref/dotnet5.1/fr/System.Reflection.xml",
+        "ref/dotnet5.1/it/System.Reflection.xml",
+        "ref/dotnet5.1/ja/System.Reflection.xml",
+        "ref/dotnet5.1/ko/System.Reflection.xml",
+        "ref/dotnet5.1/ru/System.Reflection.xml",
+        "ref/dotnet5.1/System.Reflection.dll",
+        "ref/dotnet5.1/System.Reflection.xml",
+        "ref/dotnet5.1/zh-hans/System.Reflection.xml",
+        "ref/dotnet5.1/zh-hant/System.Reflection.xml",
+        "ref/dotnet5.4/de/System.Reflection.xml",
+        "ref/dotnet5.4/es/System.Reflection.xml",
+        "ref/dotnet5.4/fr/System.Reflection.xml",
+        "ref/dotnet5.4/it/System.Reflection.xml",
+        "ref/dotnet5.4/ja/System.Reflection.xml",
+        "ref/dotnet5.4/ko/System.Reflection.xml",
+        "ref/dotnet5.4/ru/System.Reflection.xml",
+        "ref/dotnet5.4/System.Reflection.dll",
+        "ref/dotnet5.4/System.Reflection.xml",
+        "ref/dotnet5.4/zh-hans/System.Reflection.xml",
+        "ref/dotnet5.4/zh-hant/System.Reflection.xml",
         "ref/MonoAndroid10/_._",
         "ref/MonoTouch10/_._",
-        "ref/net46/_._",
+        "ref/net45/_._",
+        "ref/net46/System.Reflection.dll",
+        "ref/netcore50/de/System.Reflection.xml",
+        "ref/netcore50/es/System.Reflection.xml",
+        "ref/netcore50/fr/System.Reflection.xml",
+        "ref/netcore50/it/System.Reflection.xml",
+        "ref/netcore50/ja/System.Reflection.xml",
+        "ref/netcore50/ko/System.Reflection.xml",
+        "ref/netcore50/ru/System.Reflection.xml",
+        "ref/netcore50/System.Reflection.dll",
+        "ref/netcore50/System.Reflection.xml",
+        "ref/netcore50/zh-hans/System.Reflection.xml",
+        "ref/netcore50/zh-hant/System.Reflection.xml",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Reflection.dll",
-        "System.Reflection.4.1.0-beta-23225.nupkg",
-        "System.Reflection.4.1.0-beta-23225.nupkg.sha512",
+        "System.Reflection.4.1.0-beta-23516.nupkg",
+        "System.Reflection.4.1.0-beta-23516.nupkg.sha512",
         "System.Reflection.nuspec"
       ]
     },
@@ -17910,38 +18830,6 @@
         "System.Runtime.Numerics.4.0.0.nupkg",
         "System.Runtime.Numerics.4.0.0.nupkg.sha512",
         "System.Runtime.Numerics.nuspec"
-      ]
-    },
-    "System.Runtime.Serialization.Primitives/4.0.11-beta-23409": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "AQywM01eG8EgYde/RRrJDVdHmOOI3KkgK9GEjLQqvTLsrWsamNHN/j7Pxwa3XX7klSSrfDpvTNfUl40855idVg==",
-      "files": [
-        "lib/dotnet/de/System.Runtime.Serialization.Primitives.xml",
-        "lib/dotnet/es/System.Runtime.Serialization.Primitives.xml",
-        "lib/dotnet/fr/System.Runtime.Serialization.Primitives.xml",
-        "lib/dotnet/it/System.Runtime.Serialization.Primitives.xml",
-        "lib/dotnet/ja/System.Runtime.Serialization.Primitives.xml",
-        "lib/dotnet/ko/System.Runtime.Serialization.Primitives.xml",
-        "lib/dotnet/ru/System.Runtime.Serialization.Primitives.xml",
-        "lib/dotnet/System.Runtime.Serialization.Primitives.dll",
-        "lib/dotnet/System.Runtime.Serialization.Primitives.xml",
-        "lib/dotnet/zh-hans/System.Runtime.Serialization.Primitives.xml",
-        "lib/dotnet/zh-hant/System.Runtime.Serialization.Primitives.xml",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net46/_._",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "ref/dotnet/System.Runtime.Serialization.Primitives.dll",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net46/_._",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "System.Runtime.Serialization.Primitives.4.0.11-beta-23409.nupkg",
-        "System.Runtime.Serialization.Primitives.4.0.11-beta-23409.nupkg.sha512",
-        "System.Runtime.Serialization.Primitives.nuspec"
       ]
     },
     "System.Security.Claims/4.0.1-beta-23516": {
@@ -18933,16 +19821,23 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "Autofac >= 4.0.0-rc1-177",
+      "Autofac.Extensions.DependencyInjection >= 4.0.0-rc1-177",
+      "Autofac.Framework.DependencyInjection >= 4.0.0-beta8-157",
       "EntityFramework.Commands >= 7.0.0-rc1-final",
       "EntityFramework.MicrosoftSqlServer >= 7.0.0-rc1-final",
+      "Microsoft.AspNet.Diagnostics >= 1.0.0-rc1-final",
+      "Microsoft.AspNet.Diagnostics.Entity >= 7.0.0-rc1-final",
       "Microsoft.AspNet.Identity >= 3.0.0-rc1-final",
       "Microsoft.AspNet.Identity.EntityFramework >= 3.0.0-rc1-final",
       "Microsoft.AspNet.IISPlatformHandler >= 1.0.0-rc1-final",
       "Microsoft.AspNet.Mvc >= 6.0.0-rc1-final",
       "Microsoft.AspNet.Server.Kestrel >= 1.0.0-rc1-final",
-      "Microsoft.Extensions.Configuration.UserSecrets >= 1.0.0-rc1-final"
+      "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-rc1-final"
     ],
-    "DNX,Version=v4.5.1": [],
+    "DNX,Version=v4.5.1": [
+      "Autofac >= 4.0.0-rc1-177"
+    ],
     "DNXCore,Version=v5.0": []
   }
 }

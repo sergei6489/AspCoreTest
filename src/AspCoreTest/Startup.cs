@@ -13,6 +13,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Data.Entity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Extensions.Configuration;
+using AspCoreTest.Repository;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 
 namespace AspCoreTest
 {
@@ -30,8 +33,9 @@ namespace AspCoreTest
             Configuration = builder.Build();
         }
         public IConfigurationRoot Configuration { get; set; }
-        public void ConfigureServices( IServiceCollection services )
+        public IServiceProvider ConfigureServices( IServiceCollection services )
         {
+            services.AddMvc();
             services.AddEntityFramework()
             .AddSqlServer()
             .AddDbContext<ApplicationDBContext>( options =>
@@ -41,26 +45,37 @@ namespace AspCoreTest
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDBContext>()
                 .AddDefaultTokenProviders();
-            services.AddTransient<HttpContextHelper>();
-            
-            services.AddMvc();
 
-
+            var containerBuilder = new ContainerBuilder();
+            containerBuilder.RegisterModule<IocModule>();
+            containerBuilder.Populate( services );
+            var container = containerBuilder.Build();
+            return container.ResolveOptional<IServiceProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure( IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory )
         {
-            try
+            if( env.IsDevelopment() )
             {
-                using( var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>()
-                    .CreateScope() )
-                {
-                    serviceScope.ServiceProvider.GetService<ApplicationDBContext>()
-                         .Database.Migrate();
-                }
+                app.UseBrowserLink();
+                app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
             }
-            catch { }
+            else
+            {
+                app.UseExceptionHandler( "/Home/Error" );
+                try
+                {
+                    using( var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>()
+                        .CreateScope() )
+                    {
+                        serviceScope.ServiceProvider.GetService<ApplicationDBContext>()
+                             .Database.Migrate();
+                    }
+                }
+                catch { }
+            }
             app.UseIdentity();
             app.UseIISPlatformHandler( options => options.AuthenticationDescriptions.Clear() );
             app.UseMvc( routes =>

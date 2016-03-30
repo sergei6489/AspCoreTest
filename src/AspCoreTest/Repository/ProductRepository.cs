@@ -16,8 +16,8 @@ namespace AspCoreTest.Repository
     public class ProductRepository : IProductRepository
     {
         private ApplicationDBContext context;
-        private CartRepository cartRepository;
-        public ProductRepository( ApplicationDBContext context, CartRepository cartRepository)
+        private ICartRepository cartRepository;
+        public ProductRepository( ApplicationDBContext context, ICartRepository cartRepository)
         {
             this.context = context;
             this.cartRepository = cartRepository;
