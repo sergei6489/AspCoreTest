@@ -8,15 +8,17 @@ using Autofac;
 
 namespace AspCoreTest
 {
-    public class IocModule: Module
+    public class IocModule : Module
     {
         protected override void Load( ContainerBuilder builder )
         {
             builder.RegisterType<ApplicationDBContext>().AsSelf();
             builder.RegisterType<UserRepository>().As<IUserRepository>();
             builder.RegisterType<ProductRepository>().As<IProductRepository>();
-            builder.Register<ICartRepository>( x =>  !x.Resolve<HttpContextHelper>().Context.User.Identity.IsAuthenticated ? x.Resolve<CartRepository>() : (ICartRepository) x.Resolve<SessionCartRepository>() );
             builder.RegisterType<HttpContextHelper>().AsSelf();
+            builder.RegisterType<CartRepository>().AsSelf();
+            builder.RegisterType<SessionCartRepository>().AsSelf();
+            builder.Register<ICartRepository>( x =>  !x.Resolve<HttpContextHelper>().Context.User.Identity.IsAuthenticated ? x.Resolve<CartRepository>() : (ICartRepository) x.Resolve<SessionCartRepository>() );
         }
     }
 }

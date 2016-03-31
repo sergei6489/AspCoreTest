@@ -76,6 +76,7 @@ namespace AspCoreTest
                 }
                 catch { }
             }
+            app.UseStaticFiles();
             app.UseIdentity();
             app.UseIISPlatformHandler( options => options.AuthenticationDescriptions.Clear() );
             app.UseMvc( routes =>
