@@ -14,7 +14,7 @@ namespace AspCoreTest
         {
             builder.RegisterType<ApplicationDBContext>().AsSelf();
             builder.RegisterType<UserRepository>().As<IUserRepository>();
-            builder.RegisterType<ProductRepository>().As<IProductRepository>();
+            builder.RegisterType<ShipmentRepository>().As<IShipmentRepository>();
             builder.RegisterType<HttpContextHelper>().AsSelf();
             builder.RegisterType<CartRepository>().AsSelf();
             builder.RegisterType<SessionCartRepository>().AsSelf();

@@ -45,17 +45,11 @@ namespace AspCoreTest.Repository
             throw new NotImplementedException();
         }
 
-        public List<UserCartProduct> GetCart()
+        public List<ShipmentViewModel> GetCart()
         {
             var data = CartFromSession;
-            var products = context.Products.Where( n => CartFromSession.Select( m => m.ProductId ).Contains( n.ID ) );
-            return products.Select( n => new UserCartProduct()
-            {
-                Count = data.FirstOrDefault( m => m.ProductId == n.ID ).Count,
-                ID = n.ID,
-                Product = n,
-                User = null
-            } ).ToList();
+            var shipments = context.Shipments.Where( n => CartFromSession.Select( m => m.ProductId ).Contains( n.Id ) ).ToList();
+            return AutoMapper.Mapper.Map<List<Shipment>, List<ShipmentViewModel>>( shipments );
         }
 
         public void IncrementProduct( int idProduct )

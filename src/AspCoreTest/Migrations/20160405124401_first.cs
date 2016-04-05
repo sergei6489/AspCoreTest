@@ -5,26 +5,26 @@ using Microsoft.Data.Entity.Metadata;
 
 namespace AspCoreTest.Migrations
 {
-    public partial class Initial : Migration
+    public partial class first : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Product",
+                name: "Shipment",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Category = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
-                    Image = table.Column<byte[]>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    Price = table.Column<decimal>(nullable: false)
+                    DateTimeInput = table.Column<DateTime>(nullable: false),
+                    DateTimeOut = table.Column<DateTime>(nullable: false),
+                    From = table.Column<string>(nullable: true),
+                    IsDelete = table.Column<bool>(nullable: false),
+                    Price = table.Column<decimal>(nullable: false),
+                    To = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Product", x => x.ID);
+                    table.PrimaryKey("PK_Shipment", x => x.Id);
                 });
             migrationBuilder.CreateTable(
                 name: "AspNetUsers",
@@ -65,28 +65,20 @@ namespace AspCoreTest.Migrations
                     table.PrimaryKey("PK_IdentityRole", x => x.Id);
                 });
             migrationBuilder.CreateTable(
-                name: "UserCartProduct",
+                name: "UserCart",
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Count = table.Column<int>(nullable: false),
-                    ProductID = table.Column<int>(nullable: true),
-                    UserId = table.Column<string>(nullable: true)
+                    ShipmentId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserCartProduct", x => x.ID);
+                    table.PrimaryKey("PK_UserCart", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_UserCartProduct_Product_ProductID",
-                        column: x => x.ProductID,
-                        principalTable: "Product",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_UserCartProduct_User_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
+                        name: "FK_UserCart_Shipment_ShipmentId",
+                        column: x => x.ShipmentId,
+                        principalTable: "Shipment",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -172,6 +164,33 @@ namespace AspCoreTest.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+            migrationBuilder.CreateTable(
+                name: "UserShipment",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Age = table.Column<int>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    UserCartID = table.Column<int>(nullable: true),
+                    UserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserShipment", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_UserShipment_UserCart_UserCartID",
+                        column: x => x.UserCartID,
+                        principalTable: "UserCart",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_UserShipment_User_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
                 table: "AspNetUsers",
@@ -188,14 +207,15 @@ namespace AspCoreTest.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable("UserCartProduct");
+            migrationBuilder.DropTable("UserShipment");
             migrationBuilder.DropTable("AspNetRoleClaims");
             migrationBuilder.DropTable("AspNetUserClaims");
             migrationBuilder.DropTable("AspNetUserLogins");
             migrationBuilder.DropTable("AspNetUserRoles");
-            migrationBuilder.DropTable("Product");
+            migrationBuilder.DropTable("UserCart");
             migrationBuilder.DropTable("AspNetRoles");
             migrationBuilder.DropTable("AspNetUsers");
+            migrationBuilder.DropTable("Shipment");
         }
     }
 }

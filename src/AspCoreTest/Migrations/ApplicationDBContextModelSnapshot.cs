@@ -16,24 +16,24 @@ namespace AspCoreTest.Migrations
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("AspCoreTest.EF.Product", b =>
+            modelBuilder.Entity("AspCoreTest.EF.Shipment", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Category");
+                    b.Property<DateTime>("DateTimeInput");
 
-                    b.Property<string>("Description");
+                    b.Property<DateTime>("DateTimeOut");
 
-                    b.Property<byte[]>("Image");
+                    b.Property<string>("From");
 
-                    b.Property<bool>("IsDeleted");
-
-                    b.Property<string>("Name");
+                    b.Property<bool>("IsDelete");
 
                     b.Property<decimal>("Price");
 
-                    b.HasKey("ID");
+                    b.Property<string>("To");
+
+                    b.HasKey("Id");
                 });
 
             modelBuilder.Entity("AspCoreTest.EF.User", b =>
@@ -86,18 +86,30 @@ namespace AspCoreTest.Migrations
                     b.HasAnnotation("Relational:TableName", "AspNetUsers");
                 });
 
-            modelBuilder.Entity("AspCoreTest.EF.UserCartProduct", b =>
+            modelBuilder.Entity("AspCoreTest.EF.UserCart", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("Count");
+                    b.Property<int?>("ShipmentId");
 
-                    b.Property<int?>("ProductID");
+                    b.HasKey("ID");
+                });
+
+            modelBuilder.Entity("AspCoreTest.EF.UserShipment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Age");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int?>("UserCartID");
 
                     b.Property<string>("UserId");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityRole", b =>
@@ -182,11 +194,18 @@ namespace AspCoreTest.Migrations
                     b.HasAnnotation("Relational:TableName", "AspNetUserRoles");
                 });
 
-            modelBuilder.Entity("AspCoreTest.EF.UserCartProduct", b =>
+            modelBuilder.Entity("AspCoreTest.EF.UserCart", b =>
                 {
-                    b.HasOne("AspCoreTest.EF.Product")
+                    b.HasOne("AspCoreTest.EF.Shipment")
                         .WithMany()
-                        .HasForeignKey("ProductID");
+                        .HasForeignKey("ShipmentId");
+                });
+
+            modelBuilder.Entity("AspCoreTest.EF.UserShipment", b =>
+                {
+                    b.HasOne("AspCoreTest.EF.UserCart")
+                        .WithMany()
+                        .HasForeignKey("UserCartID");
 
                     b.HasOne("AspCoreTest.EF.User")
                         .WithMany()

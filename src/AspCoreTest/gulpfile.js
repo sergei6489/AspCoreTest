@@ -1,23 +1,30 @@
-﻿
-/// <binding BeforeBuild='moveToLibs' AfterBuild='moveToLibs' />
+﻿/// <binding AfterBuild='libs' Clean='clean' />
+
 var gulp = require('gulp');
+var rimraf = require('rimraf');
 
-gulp.task('moveToLibs', function (done) {
-    gulp.src([
-      'node_modules/angular2/bundles/js',
-      'node_modules/angular2/bundles/angular2.*.js*',
-      'node_modules/angular2/bundles/angular2-polyfills.js',
-      'node_modules/angular2/bundles/http.*.js*',
-      'node_modules/angular2/bundles/router.*.js*',
-      'node_modules/es6-shim/es6-shim.min.js*',
-      'node_modules/angular2/es6/dev/src/testing/shims_for_IE.js',
-      'node_modules/systemjs/dist/*.*',
-      'node_modules/jquery/dist/jquery.*js',
-      'node_modules/bootstrap/dist/js/bootstrap*.js',
-      'node_modules/rxjs/bundles/Rx.js'
-    ]).pipe(gulp.dest('./wwwroot/libs/'));
+var paths = {
+    npm: './node_modules/',
+    lib: './wwwroot/lib/'
+};
 
-    gulp.src([
-      'node_modules/bootstrap/dist/css/bootstrap.css'
-    ]).pipe(gulp.dest('./wwwroot/libs/css'));
+var libs = [
+    paths.npm + 'angular2/bundles/angular2.dev.js',
+    paths.npm + 'angular2/bundles/http.dev.js',
+    paths.npm + 'angular2/bundles/angular2-polyfills.js',
+    paths.npm + 'es6-shim/es6-shim.js',
+    paths.npm + 'systemjs/dist/system.js',
+    paths.npm + 'systemjs/dist/system-polyfills.js'
+];
+
+gulp.task('rxjs', function () {
+    return gulp.src(paths.npm + 'rxjs/**/*.js').pipe(gulp.dest(paths.lib + 'rxjs/'));
+});
+
+gulp.task('libs', ['rxjs'], function () {
+    return gulp.src(libs).pipe(gulp.dest(paths.lib));
+});
+
+gulp.task('clean', function (callback) {
+    rimraf(paths.lib, callback);
 });

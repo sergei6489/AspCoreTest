@@ -7,19 +7,19 @@ namespace AspCoreTest.Models
 {
     public class CartViewModel
     {
-        public List<CartProductViewModel> Products { get; set; }
+        public List<CartShipmentViewModel> UserShipment { get; set; }
         public int Count
         {
             get
             {
-                return Products.Count;
+                return UserShipment.Count;
             }
         }
         public decimal TotalPrice
         {
             get
             {
-                return Products.Sum( n => n.Price * n.Count );
+                return UserShipment.Sum( n => n.UserShipments.Count * n.Shipment.Price );
             }
         }
     }

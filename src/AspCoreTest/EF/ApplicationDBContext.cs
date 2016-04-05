@@ -9,7 +9,7 @@ namespace AspCoreTest.EF
 {
     public class ApplicationDBContext: IdentityDbContext<User>
     {
-        public DbSet<Product> Products { get; set; }
-        public DbSet<UserCartProduct> CartProducts { get; set; }
+        public DbSet<Shipment> Shipments { get; set; }
+        public DbSet<UserTravel> CartShipments { get; set; }
     }
 }

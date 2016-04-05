@@ -11,8 +11,7 @@ namespace AspCoreTest.Repository
 {
     public interface ICartRepository : IBaseRepository
     {
-        List<UserCartProduct> GetCart();
-        void SetProductCount( int idProd, int count );
+        List<ShipmentViewModel> GetCart();
         void RemoveProduct( int idProduct );
     }
 
@@ -46,7 +45,7 @@ namespace AspCoreTest.Repository
             this.contextHelper = contextHelper;
         }
 
-        public List<UserCartProduct> GetCart()
+        public List<ShipmentViewModel> GetCart()
         {
             var user = contextHelper.Context.User;
             if( user.Identity.IsAuthenticated )
@@ -58,25 +57,22 @@ namespace AspCoreTest.Repository
                 }
                 else
                 {
+                    /*
                     //переносим из корзины сессии в бд
-                    var cartProd = context.CartProducts.Where( n => n.User.Id == userDB.Id ).ToList();
-                    UserCartProduct data = null;
+                    var cartProd = context.CartShipments.Where( n => n.UserShipment.Any(m=>m.User.Id == userDB.Id) ).ToList();
+                    UserTravel data = null;
                     sessionRepository.GetCart().ForEach( ( n ) =>
                     {
                         // проверка наличия товара в бд текущего пользователя
-                        data = cartProd.FirstOrDefault( m => m.Product.ID == n.ID );
+                        data = cartProd.FirstOrDefault( m => m.Shipment.Id == n.Id );
                         if( data == null )
                         {
                             // добавить в бд товар текущего пользователя
-                            context.CartProducts.Add( new UserCartProduct() { Count = n.Count, Product = n.Product, User = CurrentUser } );
-                        }
-                        else
-                        {
-                            // установить количество товара в бд
-                            data.Count = n.Count;
+                            context.CartShipments.Add( null );
                         }
                     } );
-                    return cartProd;
+                    */
+                    return null;
                 }
             }
             else
@@ -88,24 +84,6 @@ namespace AspCoreTest.Repository
         public void RemoveProduct( int idProduct )
         {
             throw new NotImplementedException();
-        }
-
-        public void SetProductCount( int idProd, int count )
-        {
-            // Добавление товара в корзину
-            var cartProd = context.CartProducts.FirstOrDefault( n => n.Product.ID == idProd );
-            if( cartProd != null )
-            {
-                cartProd.Count++;
-            }
-            else
-            {
-                var newUserCart = new UserCartProduct();
-                newUserCart.Product = context.Products.FirstOrDefault( n => n.ID == idProd );
-                newUserCart.User = context.Users.FirstOrDefault( n => n.Id == CurrentUser.Id );
-                newUserCart.Count = 1;
-                context.CartProducts.Add( newUserCart );
-            }
         }
 
         public void SaveChanges()
