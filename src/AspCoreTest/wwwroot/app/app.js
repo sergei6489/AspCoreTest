@@ -11,6 +11,7 @@ var browser_1 = require('angular2/platform/browser');
 var core_1 = require('angular2/core');
 //import { NgFor } from 'angular2/common';
 var http_1 = require('angular2/http');
+var Shipment_1 = require('./Shipment');
 require('rxjs/add/operator/map');
 var AppComponent = (function () {
     function AppComponent(http) {
@@ -20,7 +21,14 @@ var AppComponent = (function () {
         this.getData();
     }
     AppComponent.prototype.getData = function () {
-        this.http.get('http://localhost:4163/api/shipments/');
+        this.http.get('http://localhost:4163/api/shipments/').map(function (res) {
+            return res.json();
+        }).map(function (shipments) {
+            var result = [];
+            shipments.forEach(function (elem) {
+                result.push(new Shipment_1.Shipment(elem.Id, elem.From, elem.To, elem.DateTime, elem.Price));
+            });
+        }).subscribe();
     };
     AppComponent.prototype.GetNextPage = function () {
         this.pageIndex++;

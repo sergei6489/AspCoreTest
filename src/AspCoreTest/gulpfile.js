@@ -1,7 +1,27 @@
-﻿/// <binding AfterBuild='libs' Clean='clean' />
-
+﻿/// <binding BeforeBuild='copy-css' AfterBuild='libs' Clean='clean' />
 var gulp = require('gulp');
 var rimraf = require('rimraf');
+var _ = require('lodash');
+
+var css = [
+    './node_modules/bootstrap/dist/css/bootstrap.css'
+];
+
+var fonts = [
+    './node_modules/bootstrap/dist/fonts/*.*'
+];
+
+
+gulp.task('copy-css', function () {
+    _.forEach(css, function (file, _) {
+        gulp.src(file)
+            .pipe(gulp.dest('./wwwroot/lib/css'))
+    });
+    _.forEach(fonts, function (file, _) {
+        gulp.src(file)
+            .pipe(gulp.dest('./wwwroot/lib/fonts'))
+    });
+});
 
 var paths = {
     npm: './node_modules/',
@@ -14,6 +34,7 @@ var libs = [
     paths.npm + 'angular2/bundles/angular2-polyfills.js',
     paths.npm + 'es6-shim/es6-shim.js',
     paths.npm + 'systemjs/dist/system.js',
+    paths.npm + 'jquery/dist/jquery.js',
     paths.npm + 'systemjs/dist/system-polyfills.js'
 ];
 

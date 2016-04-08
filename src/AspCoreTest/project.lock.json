@@ -209,6 +209,9 @@
           "lib/net45/System.Interactive.Async.dll": {}
         }
       },
+      "jquery.TypeScript.DefinitelyTyped/3.0.5": {
+        "type": "package"
+      },
       "Microsoft.AspNet.Antiforgery/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -1674,6 +1677,15 @@
           "lib/dnx451/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
         }
       },
+      "MSBuild.Node/0.4.4": {
+        "type": "package"
+      },
+      "MSBuild.Tsd/0.0.1": {
+        "type": "package",
+        "dependencies": {
+          "MSBuild.Node": "[0.4.4, 1.0.0]"
+        }
+      },
       "Newtonsoft.Json/6.0.6": {
         "type": "package",
         "compile": {
@@ -2100,6 +2112,9 @@
         "runtime": {
           "lib/portable-windows8+net45+wp8/System.Interactive.Async.dll": {}
         }
+      },
+      "jquery.TypeScript.DefinitelyTyped/3.0.5": {
+        "type": "package"
       },
       "Microsoft.AspNet.Antiforgery/1.0.0-rc1-final": {
         "type": "package",
@@ -3449,6 +3464,15 @@
           "lib/DNXCore50/Microsoft.Win32.Registry.dll": {}
         }
       },
+      "MSBuild.Node/0.4.4": {
+        "type": "package"
+      },
+      "MSBuild.Tsd/0.0.1": {
+        "type": "package",
+        "dependencies": {
+          "MSBuild.Node": "[0.4.4, 1.0.0]"
+        }
+      },
       "Newtonsoft.Json/6.0.6": {
         "type": "package",
         "compile": {
@@ -4736,6 +4760,9 @@
         "runtime": {
           "lib/net45/System.Interactive.Async.dll": {}
         }
+      },
+      "jquery.TypeScript.DefinitelyTyped/3.0.5": {
+        "type": "package"
       },
       "Microsoft.AspNet.Antiforgery/1.0.0-rc1-final": {
         "type": "package",
@@ -6205,6 +6232,15 @@
           "lib/dnx451/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
         }
       },
+      "MSBuild.Node/0.4.4": {
+        "type": "package"
+      },
+      "MSBuild.Tsd/0.0.1": {
+        "type": "package",
+        "dependencies": {
+          "MSBuild.Node": "[0.4.4, 1.0.0]"
+        }
+      },
       "Newtonsoft.Json/6.0.6": {
         "type": "package",
         "compile": {
@@ -6641,6 +6677,9 @@
         "runtime": {
           "lib/net45/System.Interactive.Async.dll": {}
         }
+      },
+      "jquery.TypeScript.DefinitelyTyped/3.0.5": {
+        "type": "package"
       },
       "Microsoft.AspNet.Antiforgery/1.0.0-rc1-final": {
         "type": "package",
@@ -8110,6 +8149,15 @@
           "lib/dnx451/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
         }
       },
+      "MSBuild.Node/0.4.4": {
+        "type": "package"
+      },
+      "MSBuild.Tsd/0.0.1": {
+        "type": "package",
+        "dependencies": {
+          "MSBuild.Node": "[0.4.4, 1.0.0]"
+        }
+      },
       "Newtonsoft.Json/6.0.6": {
         "type": "package",
         "compile": {
@@ -8536,6 +8584,9 @@
         "runtime": {
           "lib/portable-windows8+net45+wp8/System.Interactive.Async.dll": {}
         }
+      },
+      "jquery.TypeScript.DefinitelyTyped/3.0.5": {
+        "type": "package"
       },
       "Microsoft.AspNet.Antiforgery/1.0.0-rc1-final": {
         "type": "package",
@@ -9886,6 +9937,15 @@
         },
         "runtime": {
           "lib/DNXCore50/Microsoft.Win32.Registry.dll": {}
+        }
+      },
+      "MSBuild.Node/0.4.4": {
+        "type": "package"
+      },
+      "MSBuild.Tsd/0.0.1": {
+        "type": "package",
+        "dependencies": {
+          "MSBuild.Node": "[0.4.4, 1.0.0]"
         }
       },
       "Newtonsoft.Json/6.0.6": {
@@ -11640,6 +11700,9 @@
           "lib/portable-windows8+net45+wp8/System.Interactive.Async.dll": {}
         }
       },
+      "jquery.TypeScript.DefinitelyTyped/3.0.5": {
+        "type": "package"
+      },
       "Microsoft.AspNet.Antiforgery/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -12989,6 +13052,15 @@
         },
         "runtime": {
           "lib/DNXCore50/Microsoft.Win32.Registry.dll": {}
+        }
+      },
+      "MSBuild.Node/0.4.4": {
+        "type": "package"
+      },
+      "MSBuild.Tsd/0.0.1": {
+        "type": "package",
+        "dependencies": {
+          "MSBuild.Node": "[0.4.4, 1.0.0]"
         }
       },
       "Newtonsoft.Json/6.0.6": {
@@ -14726,6 +14798,16 @@
         "lib/portable-windows8+net45+wp8/System.Interactive.Async.XML"
       ]
     },
+    "jquery.TypeScript.DefinitelyTyped/3.0.5": {
+      "type": "package",
+      "sha512": "yffqUQO9DYxXDiObZ1lnFWjmJa2o+CR3jzsS3V2pisT2/WYTMa+bVEdfSCd/Jk4Lm0ZSvj4inje05SZA/SsUww==",
+      "files": [
+        "Content/Scripts/typings/jquery/jquery.d.ts",
+        "jquery.TypeScript.DefinitelyTyped.3.0.5.nupkg",
+        "jquery.TypeScript.DefinitelyTyped.3.0.5.nupkg.sha512",
+        "jquery.TypeScript.DefinitelyTyped.nuspec"
+      ]
+    },
     "Microsoft.AspNet.Antiforgery/1.0.0-rc1-final": {
       "type": "package",
       "serviceable": true,
@@ -15955,6 +16037,30 @@
         "ref/dotnet5.2/zh-hans/Microsoft.Win32.Registry.xml",
         "ref/dotnet5.2/zh-hant/Microsoft.Win32.Registry.xml",
         "ref/net46/Microsoft.Win32.Registry.dll"
+      ]
+    },
+    "MSBuild.Node/0.4.4": {
+      "type": "package",
+      "sha512": "0ZiEmFvosrD69hYhJLg+JLZ5bQEF4KhKBGwPDAj6BARxYJPlxY8a+sW++9FwtewCXNIT7nguQMtq8aRyudynsg==",
+      "files": [
+        "build/MSBuild.Node.props",
+        "build/MSBuild.Node.targets",
+        "MSBuild.Node.0.4.4.nupkg",
+        "MSBuild.Node.0.4.4.nupkg.sha512",
+        "MSBuild.Node.nuspec",
+        "README.md"
+      ]
+    },
+    "MSBuild.Tsd/0.0.1": {
+      "type": "package",
+      "sha512": "Tl8WL1FuVHeVI0GchLdzvB32gdvHQZtwk082oDR97sRxG0wxqYd/UIUizKYW51uuTzpn/iDHlSlHiVj8/CkMug==",
+      "files": [
+        "build/MSBuild.Tsd.props",
+        "build/MSBuild.Tsd.targets",
+        "MSBuild.Tsd.0.0.1.nupkg",
+        "MSBuild.Tsd.0.0.1.nupkg.sha512",
+        "MSBuild.Tsd.nuspec",
+        "readme.md"
       ]
     },
     "Newtonsoft.Json/6.0.6": {
@@ -20203,6 +20309,7 @@
       "AutoMapper >= 4.2.1",
       "EntityFramework.Commands >= 7.0.0-rc1-final",
       "EntityFramework.MicrosoftSqlServer >= 7.0.0-rc1-final",
+      "jquery.TypeScript.DefinitelyTyped >= 3.0.5",
       "Microsoft.AspNet.Diagnostics >= 1.0.0-rc1-final",
       "Microsoft.AspNet.Diagnostics.Entity >= 7.0.0-rc1-final",
       "Microsoft.AspNet.Identity >= 3.0.0-rc1-final",
@@ -20211,7 +20318,8 @@
       "Microsoft.AspNet.Mvc >= 6.0.0-rc1-final",
       "Microsoft.AspNet.Server.Kestrel >= 1.0.0-rc1-final",
       "Microsoft.AspNet.StaticFiles >= 1.0.0-rc1-final",
-      "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-rc1-final"
+      "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-rc1-final",
+      "MSBuild.Tsd >= 0.0.1"
     ],
     "DNX,Version=v4.5.1": [
       "Autofac >= 4.0.0-rc1-177"

@@ -3,24 +3,52 @@
 <head>
     <meta charset="utf-8" />
     <title>Angular2 Aspnet5 Seed</title>
-    <script src="lib/es6-shim.min.js"></script>
-    <script src="lib/angular2-polyfills.js"></script>
-    <script src="lib/system.js"></script>
+    <link rel="stylesheet" href="lib/css/bootstrap.css"/>
+    <link rel="stylesheet" href="lib/css/Site.css" />
+
+    <script src="lib//system.js"></script>
     <script>
-        System.config({
-            defaultJSExtensions: true,
-            map: {
-             'rxjs': 'lib/rxjs'
-            }
-        });
+    System.config({
+        defaultJSExtensions: true,
+        packages: {
+            'app': { defaultExtension: 'js' },
+            'lib': { defaultExtension: 'js' },
+        },
+    map: {
+        'rxjs': 'lib/rxjs',
+        "jquery": 'lib/jquery.js'
+        
+    }
+    });
     </script>
+    <script src="lib/jquery.js"></script>
+    <script src="lib/bootstrap.js"></script>
+    <script src="lib/angular2-polyfills.js"></script>
     <script src="lib/angular2.dev.js"></script>
     <script src="lib/http.dev.js"></script>
+
     <script>
-        System.import('app/app').catch(console.log.bind(console));
+        System.import('app/appController').catch(console.log.bind(console));
     </script>
 </head>
 <body>
-    <testProject>Loading...</testProject>
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-brand">Shipments</div>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a style="font-size: 14px;" href="#">
+                    <i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;Cart&nbsp;
+                    <span class="badge" id="countProducts">4</span>
+                </a>
+            </li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+    <div class="container">
+        <testProject>Loading...</testProject>
+    </div>
 </body>
 </html>

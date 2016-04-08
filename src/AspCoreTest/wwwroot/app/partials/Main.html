@@ -1,0 +1,50 @@
+﻿<div class="container" style="margin-top:60px;">
+    <div class="col-lg-3">
+        <ul class="nav">
+            <li *ngFor="#direction of directions">
+                <a href="#">
+                    {{direction.From}}
+                    <span class="glyphicon glyphicon-arrow-right"></span>
+                    {{direction.To}}
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-lg-7 col-md-7">
+        <div class="row" *ngFor="#shipment of shipments">
+            <div class="jumbotron">
+                <h3 class="pull-right">
+                    <label class="label label-warning">Price:</label>
+                    <label class="label" style="color:black">
+                        {{shipment.Price}}
+                        <span class="glyphicon glyphicon-euro"></span>
+                    </label>
+                </h3>
+                <h3>
+                    <label class="label label-primary">Dictionary:</label>
+                </h3>
+                <h4>
+                    <label class="label label-info">{{shipment.From}}</label>
+                    <span class="glyphicon glyphicon-arrow-right"></span>
+                    <label class="label label-info"> {{shipment.To}}</label>
+                </h4>
+                <h5>
+                    <label>Date:</label>
+                    {{shipment.DateTime | date:'yyyy-MM-dd'}}
+                    <label>Time:</label>
+                    {{shipment.DateTime | date:'hh:mm'}}
+                </h5>
+                <div class="btn-group pull-right">
+                    <a class="btn btn-danger ">Buy</a>
+                    <a class="btn btn-info ">Info</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <ShipmentDetail>
+        <div id="dialog" title="Basic dialog">
+            <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+        </div>
+    </ShipmentDetail>
+</div>
