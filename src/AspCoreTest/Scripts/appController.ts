@@ -1,15 +1,17 @@
-﻿/// <reference path="typings/jquery/jquery.d.ts" />
+﻿///<reference path="./typings/tsd.d.ts" />
+///<reference path="../node_modules/angular2/typings/browser.d.ts"/>
 import { bootstrap } from 'angular2/platform/browser';
 import { Component } from 'angular2/core';
-//import { NgFor } from 'angular2/common';
 import { Http, HTTP_PROVIDERS, Response } from 'angular2/http';
-import { Shipment } from './Shipment';
-import { Direction } from './Shipment';
+import { Shipment } from './ShipmentViewModel';
+import { Direction } from './ShipmentViewModel';
 import 'rxjs/add/operator/map';
+
 @Component({
     selector: "testProject",
     templateUrl: "app/partials/Main.html"
 })
+
 class AppComponent {
     shipments: Array<Shipment> = [];
     directions: Array<Direction> = [];
@@ -22,12 +24,7 @@ class AppComponent {
 
     getData()
     {
-    
-        $.getJSON('http://localhost:4163/api/shipments/',
-            (data) => {
-                alert('данные загружены');
 
-            });
     /*
         this.http.get('http://localhost:4163/api/shipments/').map(res=>
             res.json()

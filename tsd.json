@@ -6,7 +6,7 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "jquery/jquery.d.ts": {
-      "commit": "ec9eb4b28c74665a602c22db3457f0a76fa0fa23"
+      "commit": "237339b0238845b027431280c72dc663ca534132"
     },
     "es6-promise/es6-promise.d.ts": {
       "commit": "ec9eb4b28c74665a602c22db3457f0a76fa0fa23"
@@ -16,6 +16,9 @@
     },
     "rx/rx-lite.d.ts": {
       "commit": "ec9eb4b28c74665a602c22db3457f0a76fa0fa23"
+    },
+    "jqueryui/jqueryui.d.ts": {
+      "commit": "237339b0238845b027431280c72dc663ca534132"
     }
   }
 }

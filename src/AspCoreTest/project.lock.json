@@ -212,6 +212,12 @@
       "jquery.TypeScript.DefinitelyTyped/3.0.5": {
         "type": "package"
       },
+      "jqueryui.TypeScript.DefinitelyTyped/1.4.6": {
+        "type": "package",
+        "dependencies": {
+          "jquery.TypeScript.DefinitelyTyped": null
+        }
+      },
       "Microsoft.AspNet.Antiforgery/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -2115,6 +2121,12 @@
       },
       "jquery.TypeScript.DefinitelyTyped/3.0.5": {
         "type": "package"
+      },
+      "jqueryui.TypeScript.DefinitelyTyped/1.4.6": {
+        "type": "package",
+        "dependencies": {
+          "jquery.TypeScript.DefinitelyTyped": null
+        }
       },
       "Microsoft.AspNet.Antiforgery/1.0.0-rc1-final": {
         "type": "package",
@@ -4764,6 +4776,12 @@
       "jquery.TypeScript.DefinitelyTyped/3.0.5": {
         "type": "package"
       },
+      "jqueryui.TypeScript.DefinitelyTyped/1.4.6": {
+        "type": "package",
+        "dependencies": {
+          "jquery.TypeScript.DefinitelyTyped": null
+        }
+      },
       "Microsoft.AspNet.Antiforgery/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -6681,6 +6699,12 @@
       "jquery.TypeScript.DefinitelyTyped/3.0.5": {
         "type": "package"
       },
+      "jqueryui.TypeScript.DefinitelyTyped/1.4.6": {
+        "type": "package",
+        "dependencies": {
+          "jquery.TypeScript.DefinitelyTyped": null
+        }
+      },
       "Microsoft.AspNet.Antiforgery/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -8587,6 +8611,12 @@
       },
       "jquery.TypeScript.DefinitelyTyped/3.0.5": {
         "type": "package"
+      },
+      "jqueryui.TypeScript.DefinitelyTyped/1.4.6": {
+        "type": "package",
+        "dependencies": {
+          "jquery.TypeScript.DefinitelyTyped": null
+        }
       },
       "Microsoft.AspNet.Antiforgery/1.0.0-rc1-final": {
         "type": "package",
@@ -11703,6 +11733,12 @@
       "jquery.TypeScript.DefinitelyTyped/3.0.5": {
         "type": "package"
       },
+      "jqueryui.TypeScript.DefinitelyTyped/1.4.6": {
+        "type": "package",
+        "dependencies": {
+          "jquery.TypeScript.DefinitelyTyped": null
+        }
+      },
       "Microsoft.AspNet.Antiforgery/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -14806,6 +14842,16 @@
         "jquery.TypeScript.DefinitelyTyped.3.0.5.nupkg",
         "jquery.TypeScript.DefinitelyTyped.3.0.5.nupkg.sha512",
         "jquery.TypeScript.DefinitelyTyped.nuspec"
+      ]
+    },
+    "jqueryui.TypeScript.DefinitelyTyped/1.4.6": {
+      "type": "package",
+      "sha512": "ixL1QKyDZ8+0kiezdMLJwGlP7VnceMi0tD5otwWhmIf0UqZ2ppzkDx8DTQeSRiYho4kqBz93KOEixc3MXVfiBg==",
+      "files": [
+        "Content/Scripts/typings/jqueryui/jqueryui.d.ts",
+        "jqueryui.TypeScript.DefinitelyTyped.1.4.6.nupkg",
+        "jqueryui.TypeScript.DefinitelyTyped.1.4.6.nupkg.sha512",
+        "jqueryui.TypeScript.DefinitelyTyped.nuspec"
       ]
     },
     "Microsoft.AspNet.Antiforgery/1.0.0-rc1-final": {
@@ -20310,6 +20356,7 @@
       "EntityFramework.Commands >= 7.0.0-rc1-final",
       "EntityFramework.MicrosoftSqlServer >= 7.0.0-rc1-final",
       "jquery.TypeScript.DefinitelyTyped >= 3.0.5",
+      "jqueryui.TypeScript.DefinitelyTyped >= 1.4.6",
       "Microsoft.AspNet.Diagnostics >= 1.0.0-rc1-final",
       "Microsoft.AspNet.Diagnostics.Entity >= 7.0.0-rc1-final",
       "Microsoft.AspNet.Identity >= 3.0.0-rc1-final",
