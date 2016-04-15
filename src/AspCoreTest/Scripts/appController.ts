@@ -1,22 +1,29 @@
 ﻿///<reference path="./typings/tsd.d.ts" />
 ///<reference path="../node_modules/angular2/typings/browser.d.ts"/>
 import { bootstrap } from 'angular2/platform/browser';
-import { Component } from 'angular2/core';
+import {Component, ViewChild} from 'angular2/core';
 import { Http, HTTP_PROVIDERS, Response } from 'angular2/http';
 import { Shipment } from './ShipmentViewModel';
 import { Direction } from './ShipmentViewModel';
+import {ShipmentDetail} from './Shipment-Details';
 import 'rxjs/add/operator/map';
 
 @Component({
     selector: "testProject",
-    templateUrl: "app/partials/Main.html"
+    templateUrl: "app/partials/Main.html",
+
+    directives: [ShipmentDetail]
 })
 
 class AppComponent {
+    @ViewChild(ShipmentDetail)
+    details: ShipmentDetail;
     shipments: Array<Shipment> = [];
     directions: Array<Direction> = [];
+    selectedShipment: Shipment;
     pageIndex: number;
-    constructor(public http: Http) {
+    
+    constructor(public http: Http ) {
         this.pageIndex = 1;
         this.getData();
       
@@ -57,8 +64,9 @@ class AppComponent {
         this.getData();
     }
 
+    // показать детальную информацию по маршруту
     ShowInfo(shipment: Shipment) {
-        
+        this.details.OnShowDialog(shipment);
     }
 }
 

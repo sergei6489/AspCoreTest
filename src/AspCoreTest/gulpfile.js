@@ -35,6 +35,7 @@ var libs = [
     paths.npm + 'es6-shim/es6-shim.js',
     paths.npm + 'systemjs/dist/system.js',
     paths.npm + 'jquery/dist/jquery.js',
+    paths.npm + 'jquery-ui/jquery-ui.js',
     paths.npm + 'systemjs/dist/system-polyfills.js'
 ];
 

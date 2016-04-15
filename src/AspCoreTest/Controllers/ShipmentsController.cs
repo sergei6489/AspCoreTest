@@ -26,9 +26,21 @@ namespace AspCoreTest.Controllers
             var data = new PagerViewModel<ShipmentViewModel>()
             {
                 Result = AutoMapper.Mapper.Map<List<Shipment>, List<ShipmentViewModel>>( list ),
-                Count = count
+                CountPage = count
             };
             return data;
+        }
+
+        public ShipmentViewModel GetShipment( int id )
+        {
+            return AutoMapper.Mapper.Map<Shipment, ShipmentViewModel>( repository.GetById( id ) );
+        }
+
+        [HttpPost]
+        public void Set(ShipmentViewModel shipment)
+        {
+            var data = AutoMapper.Mapper.Map<ShipmentViewModel, Shipment>( shipment );
+            repository.InsertOrUpdate( data );
         }
     }
 }

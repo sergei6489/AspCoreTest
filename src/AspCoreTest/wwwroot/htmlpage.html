@@ -3,51 +3,75 @@
 <head>
     <meta charset="utf-8" />
     <title>Angular2 Aspnet5 Seed</title>
-    <link rel="stylesheet" href="lib/css/bootstrap.css"/>
+    <link rel="stylesheet" href="lib/css/bootstrap.css" />
     <link rel="stylesheet" href="lib/css/Site.css" />
-
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="lib//system.js"></script>
+    <style>
+        .sidebar {
+            display: none;
+        }
+
+        .label-Price {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .label-Price{
+                display:inline;
+            }
+            .sidebar {
+                position: fixed;
+                display: block;
+                bottom: 0;
+                top: 50px;
+                padding-top:5px;
+                background-color: #f5f5f5;
+            }
+        }
+        .sidebar-nav {
+            margin-left: -20px;
+        }
+    </style>
     <script>
-    System.config({
-        defaultJSExtensions: true,
-        packages: {
-            'app': { defaultExtension: 'js' },
-            'lib': { defaultExtension: 'js' },
-        },
-    map: {
-        'rxjs': 'lib/rxjs',
-        "jquery": 'lib/jquery.js'
-        
-    }
-    });
+        System.config({
+            defaultJSExtensions: true,
+            packages: {
+                'app': { defaultExtension: 'js' },
+                'lib': { defaultExtension: 'js' },
+            },
+            map: {
+                'rxjs': 'lib/rxjs',
+            }
+        });
     </script>
     <script src="lib/jquery.js"></script>
     <script src="lib/bootstrap.js"></script>
     <script src="lib/angular2-polyfills.js"></script>
     <script src="lib/angular2.dev.js"></script>
     <script src="lib/http.dev.js"></script>
-
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script>
         System.import('app/appController').catch(console.log.bind(console));
     </script>
 </head>
 <body>
-<div class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-brand">Shipments</div>
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a style="font-size: 14px;" href="#">
-                    <i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;Cart&nbsp;
-                    <span class="badge" id="countProducts">4</span>
-                </a>
-            </li>
-            <li></li>
-            <li></li>
-        </ul>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-brand">Shipments</div>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a style="font-size: 14px;" href="#">
+                        <i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;Cart&nbsp;
+                        <span class="badge" id="countProducts">4</span>
+                    </a>
+                </li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
     </div>
-</div>
-    <div class="container">
+    <div class="container-fluid" style="margin-top:60px;">
         <testProject>Loading...</testProject>
     </div>
 </body>
