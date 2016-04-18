@@ -3,21 +3,20 @@
 import { bootstrap } from 'angular2/platform/browser';
 import {Component, ViewChild} from 'angular2/core';
 import { Http, HTTP_PROVIDERS, Response } from 'angular2/http';
-import { Shipment } from './ShipmentViewModel';
-import { Direction } from './ShipmentViewModel';
+import { Shipment, Direction } from './ShipmentViewModel';
 import {ShipmentDetail} from './Shipment-Details';
+import {ShipmentEdit} from './Shipment-Edit';
 import 'rxjs/add/operator/map';
 
 @Component({
     selector: "testProject",
     templateUrl: "app/partials/Main.html",
-
-    directives: [ShipmentDetail]
+    directives: [ShipmentDetail,ShipmentEdit]
 })
 
 class AppComponent {
-    @ViewChild(ShipmentDetail)
-    details: ShipmentDetail;
+    @ViewChild("shipmentDetail") detail: ShipmentDetail;
+    @ViewChild("shipmentEdit") edit: ShipmentEdit;
     shipments: Array<Shipment> = [];
     directions: Array<Direction> = [];
     selectedShipment: Shipment;
@@ -66,7 +65,11 @@ class AppComponent {
 
     // показать детальную информацию по маршруту
     ShowInfo(shipment: Shipment) {
-        this.details.OnShowDialog(shipment);
+        this.detail.OnShowDialog(shipment);
+    }
+
+    EditInfo(shipment: Shipment) {
+        this.edit.OnShowDialog(shipment);
     }
 }
 

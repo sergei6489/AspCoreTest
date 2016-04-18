@@ -1,9 +1,7 @@
 ﻿///<reference path="./typings/tsd.d.ts" />
 import {Component, Input} from 'angular2/core';
 import { Shipment } from './ShipmentViewModel';
-import {OnInit} from 'angular2/core';
 import {ElementRef} from 'angular2/core';
-import {OnChanges} from 'angular2/core';
 
 @Component({
     selector: "shipment-detail",
@@ -18,7 +16,6 @@ import {OnChanges} from 'angular2/core';
 `]
 })
 export class ShipmentDetail {
-    @Input()
     shipment: Shipment;
     
     constructor(private elemRef: ElementRef) {

@@ -31,6 +31,7 @@
             <div class="btn-group pull-right">
                 <a class="btn btn-danger">Buy</a>
                 <a class="btn btn-info" (click)="ShowInfo(shipment)">Info</a>
+                <a class="btn btn-info" (click)="EditInfo(shipment)">Edit</a>
             </div>
             <h4>
                 <label class="label label-info">{{shipment.From}}</label>
@@ -46,4 +47,5 @@
         </div>
     </div>
 </div>
-<shipment-detail #myCarousel></shipment-detail>
+<shipment-detail #shipmentDetail></shipment-detail>
+<shipment-edit #shipmentEdit></shipment-edit>
