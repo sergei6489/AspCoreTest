@@ -3,17 +3,23 @@ import {Component, Input} from 'angular2/core';
 import { Shipment } from './ShipmentViewModel';
 import {ElementRef} from 'angular2/core';
 import {NgForm}    from 'angular2/common';
+import {EmailValidator} from './customValidation';
+import { MockDirectionString } from './Ioc/MockShipments';
 
 @Component({
     selector: "shipment-edit",
-    templateUrl: "app/partials/shipment-edit.html"
+    templateUrl: "app/partials/shipment-edit.html",
+    directives: [EmailValidator,]
 })
 export class ShipmentEdit {
-    shipment = new Shipment(0, '', '', null, 0);
+    shipment = new Shipment(1, "Barcelona", "Moscow", new Date(), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], 4555);
     directions: Array<string> = [];
 
     constructor(private elemRef: ElementRef) {
         jQuery(this.elemRef.nativeElement).dialog({
+            height: 400,
+            width: 450,
+            modal: true,
             autoOpen: false,
             show: {
                 effect: "blind",
@@ -27,15 +33,12 @@ export class ShipmentEdit {
     }
 
     getData() {
-        this.directions.push('sdfsdf');
-        this.directions.push('fsdfdfssdsdsd');
-       // this.http.get('');
+        this.directions = MockDirectionString;
     }
 
     OnShowDialog(shipment: Shipment) {
-        this.shipment = shipment;
         this.getData();
+        this.shipment = new Shipment(shipment.Id, shipment.From, shipment.To, shipment.DateTime, shipment.Places, shipment.Price);
         jQuery(this.elemRef.nativeElement).dialog("open");
-        this.getData();
     }
 }

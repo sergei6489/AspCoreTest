@@ -1,7 +1,7 @@
 ﻿///<reference path="./typings/tsd.d.ts" />
 import {Component, Input} from 'angular2/core';
 import { Shipment } from './ShipmentViewModel';
-import {ElementRef} from 'angular2/core';
+import { ElementRef } from 'angular2/core';
 
 @Component({
     selector: "shipment-detail",
@@ -16,7 +16,7 @@ import {ElementRef} from 'angular2/core';
 `]
 })
 export class ShipmentDetail {
-    shipment: Shipment;
+    shipment = new Shipment(1, "Barcelona", "Moscow", new Date(), [], 4555)
     
     constructor(private elemRef: ElementRef) {
         jQuery(this.elemRef.nativeElement).dialog({
@@ -33,7 +33,6 @@ export class ShipmentDetail {
     }
     OnShowDialog(newShipment: Shipment) {
         this.shipment = newShipment;
-
         jQuery(this.elemRef.nativeElement).dialog("open");
     }
 }

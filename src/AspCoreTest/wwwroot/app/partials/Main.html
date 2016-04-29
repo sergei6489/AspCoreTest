@@ -1,7 +1,7 @@
 ﻿
 <div class="row">
-    <div class="col-lg-2 col-sm-3 sidebar">
-        <ul class="nav sidebar-nav">
+    <div class="col-md-2 col-sm-3 sidebar thumbnail">
+        <ul class="nav">
             <li *ngFor="#direction of directions">
                 <a href="#">
                     {{direction.From}}
@@ -11,39 +11,41 @@
             </li>
         </ul>
     </div>
-    <div class="jumbotron col-lg-offset-2 col-sm-offset-3 col-md-8 col-sm-8" style="padding-left:15px">
-        <h1>Привет, мир!</h1>
-        <p>...</p>
-        <p><a class="btn btn-primary btn-lg" role="button">Узнать больше</a></p>
-    </div>
-    <div class="col-lg-offset-2 col-sm-offset-3 col-md-5 col-sm-5" style="padding-left:15px">
-        <div class="thumbnail" *ngFor="#shipment of shipments">
-            <h3 class="pull-right">
-                <label class="label label-warning label-Price">Price:</label>
-                <label class="label" style="color:black">
-                    {{shipment.Price}}
-                    <span class="glyphicon glyphicon-euro"></span>
-                </label>
-            </h3>
-            <h3>
-                <label class="label label-primary">Dictionary:</label>
-            </h3>
-            <div class="btn-group pull-right">
-                <a class="btn btn-danger">Buy</a>
-                <a class="btn btn-info" (click)="ShowInfo(shipment)">Info</a>
-                <a class="btn btn-info" (click)="EditInfo(shipment)">Edit</a>
+    <div class="col-md-offset-3">
+        <div class="jumbotron col-md-10 col-sm-10">
+            <h1>Commercial</h1>
+            <p>...</p>
+            <p><a class="btn btn-primary btn-lg" role="button">Commercial</a></p>
+        </div>
+        <div class="col-md-9 col-sm-9" style="padding-left:15px">
+            <div class="thumbnail" *ngFor="#shipment of shipments">
+                <h3 class="pull-right">
+                    <label class="label label-warning label-Price">Price:</label>
+                    <label class="label" style="color:black">
+                        {{shipment.Price}}
+                        <span class="glyphicon glyphicon-euro"></span>
+                    </label>
+                </h3>
+                <h3>
+                    <label class="label label-primary">Dictionary:</label>
+                </h3>
+                <div class="btn-group pull-right">
+                    <a class="btn btn-danger">Buy</a>
+                    <a class="btn btn-info" (click)="ShowInfo(shipment)">Info</a>
+                    <a class="btn btn-info" (click)="EditInfo(shipment)">Edit</a>
+                </div>
+                <h4>
+                    <label class="label label-info">{{shipment.From}}</label>
+                    <span class="glyphicon glyphicon-arrow-right"></span>
+                    <label class="label label-info"> {{shipment.To}}</label>
+                </h4>
+                <h5>
+                    <label>Date:</label>
+                    {{shipment.DateTime | date:'yyyy-MM-dd'}}
+                    <label>Time:</label>
+                    {{shipment.DateTime | date:'hh:mm'}}
+                </h5>
             </div>
-            <h4>
-                <label class="label label-info">{{shipment.From}}</label>
-                <span class="glyphicon glyphicon-arrow-right"></span>
-                <label class="label label-info"> {{shipment.To}}</label>
-            </h4>
-            <h5>
-                <label>Date:</label>
-                {{shipment.DateTime | date:'yyyy-MM-dd'}}
-                <label>Time:</label>
-                {{shipment.DateTime | date:'hh:mm'}}
-            </h5>
         </div>
     </div>
 </div>

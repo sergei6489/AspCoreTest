@@ -4,6 +4,7 @@
         public From: string,
         public To: string,
         public DateTime: any,
+        public Places: Array<number>,
         public Price: number)
     { }
 }
