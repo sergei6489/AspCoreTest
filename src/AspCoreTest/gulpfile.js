@@ -36,6 +36,7 @@ var libs = [
     paths.npm + 'systemjs/dist/system.js',
     paths.npm + 'jquery/dist/jquery.js',
     paths.npm + 'jquery-ui/jquery-ui.js',
+    paths.npm + 'bootstrap/dist/js/bootstrap.min.js',
     paths.npm + 'systemjs/dist/system-polyfills.js'
 ];
 

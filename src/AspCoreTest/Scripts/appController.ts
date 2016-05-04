@@ -6,13 +6,14 @@ import { Http, HTTP_PROVIDERS, Response } from 'angular2/http';
 import { Shipment, Direction } from './ShipmentViewModel';
 import {ShipmentDetail} from './Shipment-Details';
 import {ShipmentEdit} from './Shipment-Edit';
+import {SearchControl} from './SearchControl';
 import 'rxjs/add/operator/map';
 import { MockDirections,MockShipments } from './Ioc/MockShipments';
 
 @Component({
     selector: "testProject",
     templateUrl: "app/partials/Main.html",
-    directives: [ShipmentDetail,ShipmentEdit]
+    directives: [ShipmentDetail,ShipmentEdit,SearchControl]
 })
 
 class AppComponent {
@@ -20,13 +21,14 @@ class AppComponent {
     @ViewChild("shipmentEdit") edit: ShipmentEdit;
     shipments: Array<Shipment> = [];
     directions: Array<Direction> = [];
-    selectedShipment: Shipment;
+    public From: string = 'jjj';
+    public To: string = 'hhh';
+    List: Array<string>=[];
     pageIndex: number;
     
     constructor(public http: Http ) {
         this.pageIndex = 1;
         this.getData();
-      
     }
 
     getData()

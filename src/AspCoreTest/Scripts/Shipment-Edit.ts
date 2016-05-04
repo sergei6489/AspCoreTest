@@ -12,7 +12,7 @@ import { MockDirectionString } from './Ioc/MockShipments';
     directives: [EmailValidator,]
 })
 export class ShipmentEdit {
-    shipment = new Shipment(1, "Barcelona", "Moscow", new Date(), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], 4555);
+    shipment = new Shipment(1, "Barcelona", "Moscow", new Date(), [], 4555);
     directions: Array<string> = [];
 
     constructor(private elemRef: ElementRef) {
