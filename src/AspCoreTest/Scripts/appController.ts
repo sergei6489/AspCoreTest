@@ -8,10 +8,13 @@ import {ShipmentDetail} from './Shipment-Details';
 import {ShipmentEdit} from './Shipment-Edit';
 import {SearchControl} from './SearchControl';
 import 'rxjs/add/operator/map';
-import { MockDirections,MockShipments } from './Ioc/MockShipments';
+import { MockDirections, MockShipments } from './Ioc/MockShipments';
+import { ShipmentService } from "./ShipmentService";
+import { SearchViewModel } from "./SearchViewModel";
 
 @Component({
     selector: "testProject",
+    providers: [ShipmentService, SearchViewModel],
     templateUrl: "app/partials/Main.html",
     directives: [ShipmentDetail,ShipmentEdit,SearchControl]
 })
@@ -20,13 +23,9 @@ class AppComponent {
     @ViewChild("shipmentDetail") detail: ShipmentDetail;
     @ViewChild("shipmentEdit") edit: ShipmentEdit;
     shipments: Array<Shipment> = [];
-    directions: Array<Direction> = [];
-    public From: string = 'jjj';
-    public To: string = 'hhh';
-    List: Array<string>=[];
     pageIndex: number;
-    
-    constructor(public http: Http ) {
+
+    constructor(public http: Http, public service: ShipmentService, public search: SearchViewModel) {
         this.pageIndex = 1;
         this.getData();
     }
@@ -34,7 +33,10 @@ class AppComponent {
     getData()
     {
         this.shipments = MockShipments;
-        this.directions = MockDirections;
+    }
+
+    Search() {
+        this.service.getShipments(1, 10, this.search);
     }
 
     GetNextPage() {

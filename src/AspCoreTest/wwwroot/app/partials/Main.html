@@ -3,54 +3,53 @@
     <p>...</p>
     <p><a class="btn btn-primary btn-lg" role="button">Commercial</a></p>
 </div>
-<div class="container-fluid">
-    <div class="panel panel-default success">
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Searching</h3>
+        </div>
         <div class="panel-body">
             <div class="form-inline">
                 <div class="form-group">
-                    <comboBoxTemplate [(value)]="From"></comboBoxTemplate>
-                    <comboBoxTemplate [(value)]="To"></comboBoxTemplate>
-                </div> 
-                    <div class="form-group">
-                        <label>Date:</label>
-                        <input class="form-control" />
-                    </div>
+                    <comboBoxTemplate [text]="'From'" [(value)]="search.From"></comboBoxTemplate>
+                    <comboBoxTemplate [text]="'To'" [(value)]="search.To"></comboBoxTemplate>
                 </div>
-            <button type="button" class="pull-right btn btn-success">Search</button>
+                <div class="form-group">
+                    <label>Date:</label>
+                    <input class="form-control" [(ngModel)]="search.DateShipment" />
+                </div>
+            </div>
+            <button type="button" class="pull-right btn btn-success" (click)="Search()">Search</button>
         </div>
     </div>
-
-
-    <div class="row">
-        <div class="col-md-9 col-sm-9" style="padding-left:15px">
-            <div class="thumbnail" *ngFor="#shipment of shipments">
-                <h3 class="pull-right">
-                    <label class="label label-warning label-Price">Price:</label>
-                    <label class="label" style="color:black">
-                        {{shipment.Price}}
-                        <span class="glyphicon glyphicon-euro"></span>
-                    </label>
-                </h3>
-                <h3>
-                    <label class="label label-primary">Dictionary:</label>
-                </h3>
-                <div class="btn-group pull-right">
-                    <a class="btn btn-danger">Buy</a>
-                    <a class="btn btn-info" (click)="ShowInfo(shipment)">Info</a>
-                    <a class="btn btn-info" (click)="EditInfo(shipment)">Edit</a>
-                </div>
-                <h4>
-                    <label class="label label-info">{{shipment.From}}</label>
-                    <span class="glyphicon glyphicon-arrow-right"></span>
-                    <label class="label label-info"> {{shipment.To}}</label>
-                </h4>
-                <h5>
-                    <label>Date:</label>
-                    {{shipment.DateTime | date:'yyyy-MM-dd'}}
-                    <label>Time:</label>
-                    {{shipment.DateTime | date:'hh:mm'}}
-                </h5>
+    <div class="col-md-offset-1 col-sm-offset-1 col-md-9 col-sm-9" style="padding-left:15px">
+        <div class="thumbnail" *ngFor="#shipment of shipments">
+            <h3 class="pull-right">
+                <label class="label label-warning label-Price">Price:</label>
+                <label class="label" style="color:black">
+                    {{shipment.Price}}
+                    <span class="glyphicon glyphicon-euro"></span>
+                </label>
+            </h3>
+            <h3>
+                <label class="label label-primary">Dictionary:</label>
+            </h3>
+            <div class="btn-group pull-right">
+                <a class="btn btn-danger">Buy</a>
+                <a class="btn btn-info" (click)="ShowInfo(shipment)">Info</a>
+                <a class="btn btn-info" (click)="EditInfo(shipment)">Edit</a>
             </div>
+            <h4>
+                <label class="label label-info">{{shipment.From}}</label>
+                <span class="glyphicon glyphicon-arrow-right"></span>
+                <label class="label label-info"> {{shipment.To}}</label>
+            </h4>
+            <h5>
+                <label>Date:</label>
+                {{shipment.DateTime | date:'yyyy-MM-dd'}}
+                <label>Time:</label>
+                {{shipment.DateTime | date:'hh:mm'}}
+            </h5>
         </div>
     </div>
 </div>

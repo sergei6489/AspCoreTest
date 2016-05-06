@@ -11,5 +11,6 @@ namespace AspCoreTest.EF
     {
         public DbSet<Shipment> Shipments { get; set; }
         public DbSet<UserTravel> CartShipments { get; set; }
+        public DbSet<UserShipment> UserShipments { get; set; }
     }
 }

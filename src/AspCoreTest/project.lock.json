@@ -73,6 +73,12 @@
           "lib/net45/AutoMapper.dll": {}
         }
       },
+      "bootstrap.TypeScript.DefinitelyTyped/0.9.1": {
+        "type": "package",
+        "dependencies": {
+          "jquery.TypeScript.DefinitelyTyped": null
+        }
+      },
       "EntityFramework.Commands/7.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -2010,6 +2016,12 @@
         },
         "runtime": {
           "lib/dotnet5.1/AutoMapper.dll": {}
+        }
+      },
+      "bootstrap.TypeScript.DefinitelyTyped/0.9.1": {
+        "type": "package",
+        "dependencies": {
+          "jquery.TypeScript.DefinitelyTyped": null
         }
       },
       "EntityFramework.Commands/7.0.0-rc1-final": {
@@ -4637,6 +4649,12 @@
           "lib/net45/AutoMapper.dll": {}
         }
       },
+      "bootstrap.TypeScript.DefinitelyTyped/0.9.1": {
+        "type": "package",
+        "dependencies": {
+          "jquery.TypeScript.DefinitelyTyped": null
+        }
+      },
       "EntityFramework.Commands/7.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -6558,6 +6576,12 @@
         },
         "runtime": {
           "lib/net45/AutoMapper.dll": {}
+        }
+      },
+      "bootstrap.TypeScript.DefinitelyTyped/0.9.1": {
+        "type": "package",
+        "dependencies": {
+          "jquery.TypeScript.DefinitelyTyped": null
         }
       },
       "EntityFramework.Commands/7.0.0-rc1-final": {
@@ -8500,6 +8524,12 @@
         },
         "runtime": {
           "lib/dotnet5.1/AutoMapper.dll": {}
+        }
+      },
+      "bootstrap.TypeScript.DefinitelyTyped/0.9.1": {
+        "type": "package",
+        "dependencies": {
+          "jquery.TypeScript.DefinitelyTyped": null
         }
       },
       "EntityFramework.Commands/7.0.0-rc1-final": {
@@ -11623,6 +11653,12 @@
           "lib/dotnet5.1/AutoMapper.dll": {}
         }
       },
+      "bootstrap.TypeScript.DefinitelyTyped/0.9.1": {
+        "type": "package",
+        "dependencies": {
+          "jquery.TypeScript.DefinitelyTyped": null
+        }
+      },
       "EntityFramework.Commands/7.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -14722,6 +14758,16 @@
         "lib/net45/AutoMapper.xml",
         "lib/portable-net45+win+wpa81+MonoAndroid10+Xamarin.iOS10+MonoTouch10/AutoMapper.dll",
         "lib/portable-net45+win+wpa81+MonoAndroid10+Xamarin.iOS10+MonoTouch10/AutoMapper.xml"
+      ]
+    },
+    "bootstrap.TypeScript.DefinitelyTyped/0.9.1": {
+      "type": "package",
+      "sha512": "glRq6BqIKkwg9fWxznWrTbgpYJ0FzWAAlco70kT5kB3cHTnh8b1wKWGOEYtvzTjV8f/BHJJIAlhpSe7dC+4+Mw==",
+      "files": [
+        "bootstrap.TypeScript.DefinitelyTyped.0.9.1.nupkg",
+        "bootstrap.TypeScript.DefinitelyTyped.0.9.1.nupkg.sha512",
+        "bootstrap.TypeScript.DefinitelyTyped.nuspec",
+        "Content/Scripts/typings/bootstrap/bootstrap.d.ts"
       ]
     },
     "EntityFramework.Commands/7.0.0-rc1-final": {
@@ -20353,6 +20399,7 @@
       "Autofac.Extensions.DependencyInjection >= 4.0.0-rc1-177",
       "Autofac.Framework.DependencyInjection >= 4.0.0-beta8-157",
       "AutoMapper >= 4.2.1",
+      "bootstrap.TypeScript.DefinitelyTyped >= 0.9.1",
       "EntityFramework.Commands >= 7.0.0-rc1-final",
       "EntityFramework.MicrosoftSqlServer >= 7.0.0-rc1-final",
       "jquery.TypeScript.DefinitelyTyped >= 3.0.5",

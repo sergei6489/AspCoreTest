@@ -58,17 +58,23 @@
             <div class="navbar-brand">Shipments</div>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a style="font-size: 14px;" href="#">
-                        <i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;Cart&nbsp;
-                        <span class="badge" id="countProducts">4</span>
-                    </a>
+                    <a style="font-size: 14px;" href="#">Register</a>
                 </li>
-                <li></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" href="#" data-toggle="dropdown">Login<strong class="caret"></strong></a>
+                    <div class="dropdown-menu" style="padding: 15px;">
+                        <form action="@Url.Action(" LogIn","User")" method="post" class="form-horizontal navbar-form">
+                            <input class="form-control margin-top" name="UserName" placeholder="Email" />
+                            <input class="form-control margin-top" name="Password" placeholder="Password" />
+                            <input type="submit" class="btn btn-success margin-top pull-right" value="Войти" />
+                        </form>
+                    </div>
+                </li>
                 <li></li>
             </ul>
         </div>
     </div>
-    <div class="container" style="margin-top:60px;">
+    <div class="container-fluid" style="margin-top:60px;">
         <testProject>Loading...</testProject>
     </div>
 </body>

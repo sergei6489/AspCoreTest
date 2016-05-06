@@ -11,6 +11,7 @@ namespace AspCoreTest.EF
         public string Name { get; set; }
         public int Age { get; set; }
         public virtual User User { get; set; }
+        public virtual Shipment Shipment { get; set; }
         public virtual ICollection<UserTravel> UserTravel { get; set; }
     }
 }

@@ -58,6 +58,36 @@ namespace AspCoreTest
         {
             if( env.IsDevelopment() )
             {
+                #region
+                try
+                {
+                    var data = app.ApplicationServices.GetService<ApplicationDBContext>();
+                    if( !data.Users.Any( n => n.UserName == "admin" ) )
+                    {
+                        data.Users.Add( new User() { UserName = "admin", IsAdmin = true, PasswordHash = "", Email = "test@mail.ru", PhoneNumber = "89192734674" } );
+                        data.Users.Add( new User() { UserName = "test1", IsAdmin = false, PasswordHash = "", Email = "test@mail.ru", PhoneNumber = "89192744674" } );
+                        data.Users.Add( new User() { UserName = "test2", IsAdmin = false, PasswordHash = "", Email = "test@mail.ru", PhoneNumber = "89192746674" } );
+                        data.Shipments.Add( new Shipment() { From = "Minsk", To = "Moscow", DateTimeInput = DateTime.Now, DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "Barcelona", To = "Moscow", DateTimeInput = DateTime.Now.AddDays( 1 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "Minsk", To = "Barcelona", DateTimeInput = DateTime.Now.AddDays( 2 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "NewYork", To = "Moscow", DateTimeInput = DateTime.Now.AddDays( 3 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "Minsk", To = "Moscow", DateTimeInput = DateTime.Now.AddDays( 4 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "Minsk", To = "NewYork", DateTimeInput = DateTime.Now.AddDays( 5 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "Bagdad", To = "Moscow", DateTimeInput = DateTime.Now.AddDays( 6 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "Minsk", To = "Moscow", DateTimeInput = DateTime.Now.AddDays( 4 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "Minsk", To = "Bagdad", DateTimeInput = DateTime.Now.AddDays( 3 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "Bagdad", To = "Barcelona", DateTimeInput = DateTime.Now.AddDays( 6 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "Minsk", To = "Moscow", DateTimeInput = DateTime.Now.AddDays( 8 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "Minsk", To = "Bagdad", DateTimeInput = DateTime.Now.AddDays( 9 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "Minsk", To = "Moscow", DateTimeInput = DateTime.Now.AddDays( 10 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
+                        data.SaveChanges();
+                    }
+                }
+                catch(Exception ex)
+                {
+
+                }
+                #endregion
                 app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();

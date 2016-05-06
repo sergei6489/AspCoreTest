@@ -16,9 +16,6 @@ namespace AspCoreTest
             builder.RegisterType<UserRepository>().As<IUserRepository>();
             builder.RegisterType<ShipmentRepository>().As<IShipmentRepository>();
             builder.RegisterType<HttpContextHelper>().AsSelf();
-            builder.RegisterType<CartRepository>().AsSelf();
-            builder.RegisterType<SessionCartRepository>().AsSelf();
-            builder.Register<ICartRepository>( x =>  !x.Resolve<HttpContextHelper>().Context.User.Identity.IsAuthenticated ? x.Resolve<CartRepository>() : (ICartRepository) x.Resolve<SessionCartRepository>() );
         }
     }
 }

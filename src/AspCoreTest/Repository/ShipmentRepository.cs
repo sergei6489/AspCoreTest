@@ -16,11 +16,9 @@ namespace AspCoreTest.Repository
     public class ShipmentRepository : IShipmentRepository
     {
         private ApplicationDBContext context;
-        private ICartRepository cartRepository;
-        public ShipmentRepository( ApplicationDBContext context, ICartRepository cartRepository)
+        public ShipmentRepository( ApplicationDBContext context)
         {
             this.context = context;
-            this.cartRepository = cartRepository;
         }
 
         public List<Shipment> Get( int index, int count, SearchViewModel search, out int pageCount )
@@ -43,7 +41,7 @@ namespace AspCoreTest.Repository
 
         public void Delete( int id )
         {
-          context.CartShipments.RemoveRange( context.CartShipments.Where( n => n.ID == id ));        
+          context.CartShipments.RemoveRange( context.CartShipments.Where( n => n.Id == id ));        
         }
 
         public void InsertOrUpdate( Shipment shipment )

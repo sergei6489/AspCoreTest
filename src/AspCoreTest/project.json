@@ -10,6 +10,7 @@
     "Autofac.Extensions.DependencyInjection": "4.0.0-rc1-177",
     "Autofac.Framework.DependencyInjection": "4.0.0-beta8-157",
     "AutoMapper": "4.2.1",
+    "bootstrap.TypeScript.DefinitelyTyped": "0.9.1",
     "EntityFramework.Commands": "7.0.0-rc1-final",
     "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
     "jquery.TypeScript.DefinitelyTyped": "3.0.5",

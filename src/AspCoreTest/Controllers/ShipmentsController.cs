@@ -11,7 +11,6 @@ using Microsoft.AspNet.Mvc;
 
 namespace AspCoreTest.Controllers
 {
-    [Route( "api/[controller]" )]
     public class ShipmentsController : Controller
     {
         private IShipmentRepository repository;
@@ -19,16 +18,21 @@ namespace AspCoreTest.Controllers
         {
             this.repository = repository;
         }
-        public PagerViewModel<ShipmentViewModel> Get( int pageIndex )
+        /*
+        public PagerViewModel<ShipmentViewModel> Get( int itemCount )
         {
             int count;
-            var list = repository.Get( pageIndex, 20, null, out count );
+            var list = repository.Get( 0, itemCount, null, out count );
             var data = new PagerViewModel<ShipmentViewModel>()
             {
                 Result = AutoMapper.Mapper.Map<List<Shipment>, List<ShipmentViewModel>>( list ),
                 CountPage = count
             };
             return data;
+        }*/
+        public JsonResult Get([FromBody] int itemCount )
+        {
+            return Json( "sd" );
         }
 
         public ShipmentViewModel GetShipment( int id )
@@ -41,6 +45,15 @@ namespace AspCoreTest.Controllers
         {
             var data = AutoMapper.Mapper.Map<ShipmentViewModel, Shipment>( shipment );
             repository.InsertOrUpdate( data );
+        }
+
+        public JsonResult GetDirections( string data )
+        {
+            List<string> list = new List<string>();
+            list.Add( "Moscow" );
+            list.Add( "Madrid" );
+            list.Add( "Minsk" );
+            return Json( list );
         }
     }
 }

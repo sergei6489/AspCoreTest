@@ -5,7 +5,7 @@ using Microsoft.Data.Entity.Metadata;
 
 namespace AspCoreTest.Migrations
 {
-    public partial class first : Migration
+    public partial class Db : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -65,20 +65,29 @@ namespace AspCoreTest.Migrations
                     table.PrimaryKey("PK_IdentityRole", x => x.Id);
                 });
             migrationBuilder.CreateTable(
-                name: "UserCart",
+                name: "UserShipment",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ShipmentId = table.Column<int>(nullable: true)
+                    Age = table.Column<int>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    ShipmentId = table.Column<int>(nullable: true),
+                    UserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserCart", x => x.ID);
+                    table.PrimaryKey("PK_UserShipment", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_UserCart_Shipment_ShipmentId",
+                        name: "FK_UserShipment_Shipment_ShipmentId",
                         column: x => x.ShipmentId,
                         principalTable: "Shipment",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_UserShipment_User_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -165,29 +174,30 @@ namespace AspCoreTest.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
             migrationBuilder.CreateTable(
-                name: "UserShipment",
+                name: "UserTravel",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Age = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: true),
-                    UserCartID = table.Column<int>(nullable: true),
-                    UserId = table.Column<string>(nullable: true)
+                    Place = table.Column<int>(nullable: false),
+                    ShipmentId = table.Column<int>(nullable: true),
+                    SurName = table.Column<string>(nullable: true),
+                    UserShipmentId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserShipment", x => x.Id);
+                    table.PrimaryKey("PK_UserTravel", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_UserShipment_UserCart_UserCartID",
-                        column: x => x.UserCartID,
-                        principalTable: "UserCart",
-                        principalColumn: "ID",
+                        name: "FK_UserTravel_Shipment_ShipmentId",
+                        column: x => x.ShipmentId,
+                        principalTable: "Shipment",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_UserShipment_User_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
+                        name: "FK_UserTravel_UserShipment_UserShipmentId",
+                        column: x => x.UserShipmentId,
+                        principalTable: "UserShipment",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -207,15 +217,15 @@ namespace AspCoreTest.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable("UserShipment");
+            migrationBuilder.DropTable("UserTravel");
             migrationBuilder.DropTable("AspNetRoleClaims");
             migrationBuilder.DropTable("AspNetUserClaims");
             migrationBuilder.DropTable("AspNetUserLogins");
             migrationBuilder.DropTable("AspNetUserRoles");
-            migrationBuilder.DropTable("UserCart");
+            migrationBuilder.DropTable("UserShipment");
             migrationBuilder.DropTable("AspNetRoles");
-            migrationBuilder.DropTable("AspNetUsers");
             migrationBuilder.DropTable("Shipment");
+            migrationBuilder.DropTable("AspNetUsers");
         }
     }
 }

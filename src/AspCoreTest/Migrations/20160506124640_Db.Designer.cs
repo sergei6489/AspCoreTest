@@ -8,8 +8,8 @@ using AspCoreTest.EF;
 namespace AspCoreTest.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20160405124401_first")]
-    partial class first
+    [Migration("20160506124640_Db")]
+    partial class Db
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -87,16 +87,6 @@ namespace AspCoreTest.Migrations
                     b.HasAnnotation("Relational:TableName", "AspNetUsers");
                 });
 
-            modelBuilder.Entity("AspCoreTest.EF.UserCart", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int?>("ShipmentId");
-
-                    b.HasKey("ID");
-                });
-
             modelBuilder.Entity("AspCoreTest.EF.UserShipment", b =>
                 {
                     b.Property<int>("Id")
@@ -106,9 +96,27 @@ namespace AspCoreTest.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<int?>("UserCartID");
+                    b.Property<int?>("ShipmentId");
 
                     b.Property<string>("UserId");
+
+                    b.HasKey("Id");
+                });
+
+            modelBuilder.Entity("AspCoreTest.EF.UserTravel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.Property<int>("Place");
+
+                    b.Property<int?>("ShipmentId");
+
+                    b.Property<string>("SurName");
+
+                    b.Property<int?>("UserShipmentId");
 
                     b.HasKey("Id");
                 });
@@ -195,22 +203,26 @@ namespace AspCoreTest.Migrations
                     b.HasAnnotation("Relational:TableName", "AspNetUserRoles");
                 });
 
-            modelBuilder.Entity("AspCoreTest.EF.UserCart", b =>
+            modelBuilder.Entity("AspCoreTest.EF.UserShipment", b =>
                 {
                     b.HasOne("AspCoreTest.EF.Shipment")
                         .WithMany()
                         .HasForeignKey("ShipmentId");
-                });
-
-            modelBuilder.Entity("AspCoreTest.EF.UserShipment", b =>
-                {
-                    b.HasOne("AspCoreTest.EF.UserCart")
-                        .WithMany()
-                        .HasForeignKey("UserCartID");
 
                     b.HasOne("AspCoreTest.EF.User")
                         .WithMany()
                         .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("AspCoreTest.EF.UserTravel", b =>
+                {
+                    b.HasOne("AspCoreTest.EF.Shipment")
+                        .WithMany()
+                        .HasForeignKey("ShipmentId");
+
+                    b.HasOne("AspCoreTest.EF.UserShipment")
+                        .WithMany()
+                        .HasForeignKey("UserShipmentId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityRoleClaim<string>", b =>
