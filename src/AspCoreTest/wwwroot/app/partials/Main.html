@@ -22,35 +22,43 @@
             <button type="button" class="pull-right btn btn-success" (click)="Search()">Search</button>
         </div>
     </div>
-    <div class="col-md-offset-1 col-sm-offset-1 col-md-9 col-sm-9" style="padding-left:15px">
-        <div class="thumbnail" *ngFor="#shipment of shipments">
-            <h3 class="pull-right">
-                <label class="label label-warning label-Price">Price:</label>
-                <label class="label" style="color:black">
-                    {{shipment.Price}}
-                    <span class="glyphicon glyphicon-euro"></span>
-                </label>
-            </h3>
-            <h3>
-                <label class="label label-primary">Dictionary:</label>
-            </h3>
-            <div class="btn-group pull-right">
-                <a class="btn btn-danger">Buy</a>
-                <a class="btn btn-info" (click)="ShowInfo(shipment)">Info</a>
-                <a class="btn btn-info" (click)="EditInfo(shipment)">Edit</a>
+    <div class="row">
+        <div class="col-md-offset-1 col-sm-offset-1 col-md-9 col-sm-9" style="padding-left:15px">
+            <div class="thumbnail" *ngFor="#shipment of shipments">
+                <h3 class="pull-right">
+                    <label class="label label-warning label-Price">Price:</label>
+                    <label class="label" style="color:black">
+                        {{shipment.Price}}
+                        <span class="glyphicon glyphicon-euro"></span>
+                    </label>
+                </h3>
+                <h3>
+                    <label class="label label-primary">Dictionary:</label>
+                </h3>
+                <div class="btn-group pull-right">
+                    <a class="btn btn-danger">Buy</a>
+                    <a class="btn btn-info" (click)="ShowInfo(shipment)">Info</a>
+                    <a class="btn btn-info" (click)="EditInfo(shipment)">Edit</a>
+                </div>
+                <h4>
+                    <label class="label label-info">{{shipment.From}}</label>
+                    <span class="glyphicon glyphicon-arrow-right"></span>
+                    <label class="label label-info"> {{shipment.To}}</label>
+                </h4>
+                <h5>
+                    <label>Date:</label>
+                    {{shipment.DateTime | date:'yyyy-MM-dd'}}
+                    <label>Time:</label>
+                    {{shipment.DateTime | date:'hh:mm'}}
+                </h5>
             </div>
-            <h4>
-                <label class="label label-info">{{shipment.From}}</label>
-                <span class="glyphicon glyphicon-arrow-right"></span>
-                <label class="label label-info"> {{shipment.To}}</label>
-            </h4>
-            <h5>
-                <label>Date:</label>
-                {{shipment.DateTime | date:'yyyy-MM-dd'}}
-                <label>Time:</label>
-                {{shipment.DateTime | date:'hh:mm'}}
-            </h5>
         </div>
+    </div>
+    <div class="row">
+        <ul class="pager">
+            <li [class.disabled]="true"><a (click)="previewPage()" >Preview</a></li>
+            <li><a (click)="nextPage()">Next</a></li>
+        </ul>
     </div>
 </div>
 <shipment-detail #shipmentDetail></shipment-detail>

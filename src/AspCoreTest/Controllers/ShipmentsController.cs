@@ -18,22 +18,20 @@ namespace AspCoreTest.Controllers
         {
             this.repository = repository;
         }
-        /*
-        public PagerViewModel<ShipmentViewModel> Get( int itemCount )
+
+        [HttpPost]
+        public PagerViewModel<ShipmentViewModel> Get( [FromBody] SearchViewModel search )
         {
             int count;
-            var list = repository.Get( 0, itemCount, null, out count );
+            var list = repository.Get( search.pageNumber, search.itemCount, null, out count );
             var data = new PagerViewModel<ShipmentViewModel>()
             {
                 Result = AutoMapper.Mapper.Map<List<Shipment>, List<ShipmentViewModel>>( list ),
                 CountPage = count
             };
             return data;
-        }*/
-        public JsonResult Get([FromBody] int itemCount )
-        {
-            return Json( "sd" );
         }
+
 
         public ShipmentViewModel GetShipment( int id )
         {

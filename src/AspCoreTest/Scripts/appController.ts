@@ -11,6 +11,7 @@ import 'rxjs/add/operator/map';
 import { MockDirections, MockShipments } from './Ioc/MockShipments';
 import { ShipmentService } from "./ShipmentService";
 import { SearchViewModel } from "./SearchViewModel";
+import { PagerShipments } from "./PagerShipments"
 
 @Component({
     selector: "testProject",
@@ -24,25 +25,38 @@ class AppComponent {
     @ViewChild("shipmentEdit") edit: ShipmentEdit;
     shipments: Array<Shipment> = [];
     pageIndex: number;
+    pageCount: number;
 
     constructor(public http: Http, public service: ShipmentService, public search: SearchViewModel) {
         this.pageIndex = 1;
-        this.getData();
+        this.init();
     }
 
-    getData()
+    init()
     {
-        this.shipments = MockShipments;
+        this.shipments = [];
+        this.pageIndex = 1;
+        this.pageCount = 0;
+        this.Search();
     }
 
     Search() {
-        this.service.getShipments(1, 10, this.search);
+        var data: PagerShipments = this.service.getShipments(this.pageIndex, 10, this.search);
+        this.shipments = data.Result;
+        this.pageCount = data.PageCount;
+    }
+    previewPage() {
+        if (this.pageIndex > 0 && this.pageIndex < this.pageCount - 1) {
+            this.pageIndex--;
+            this.Search();
+        }
     }
 
-    GetNextPage() {
-        this.pageIndex++;
-        this.getData();
-    }
+    nextPage() {
+        if (this.pageIndex < this.pageCount - 1) {
+            this.pageIndex++;
+            this.Search();
+        }}
 
     // показать детальную информацию по маршруту
     ShowInfo(shipment: Shipment) {

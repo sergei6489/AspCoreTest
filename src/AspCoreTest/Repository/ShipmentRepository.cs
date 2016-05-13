@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using AspCoreTest.EF;
+using AspCoreTest.Models;
 
 namespace AspCoreTest.Repository
 {
