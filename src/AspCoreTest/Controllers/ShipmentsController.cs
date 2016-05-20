@@ -27,7 +27,7 @@ namespace AspCoreTest.Controllers
             var data = new PagerViewModel<ShipmentViewModel>()
             {
                 Result = AutoMapper.Mapper.Map<List<Shipment>, List<ShipmentViewModel>>( list ),
-                CountPage = count
+                PageCount = count
             };
             return data;
         }

@@ -6,7 +6,7 @@ namespace AspCoreTest.Models
 {
     public class PagerViewModel<T>
     {
-        public int CountPage { get; set; }
+        public int PageCount { get; set; }
         public List<T> Result { get; set; }
     }
 }

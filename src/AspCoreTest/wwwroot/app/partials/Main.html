@@ -9,17 +9,50 @@
             <h3 class="panel-title">Searching</h3>
         </div>
         <div class="panel-body">
-            <div class="form-inline">
+
                 <div class="form-group">
-                    <comboBoxTemplate [text]="'From'" [(value)]="search.From"></comboBoxTemplate>
-                    <comboBoxTemplate [text]="'To'" [(value)]="search.To"></comboBoxTemplate>
+                    <div class="form-inline">
+                        <label>Roundtrip:</label>
+                        <input class="checkbox" type="checkbox" />
+                    </div>
                 </div>
+
                 <div class="form-group">
-                    <label>Date:</label>
-                    <input class="form-control" [(ngModel)]="search.DateShipment" />
+                <div class="form-inline">
+                    <div class="form-group">
+                        <comboBoxTemplate [text]="'From'" [(value)]="search.From"></comboBoxTemplate>
+                        <comboBoxTemplate [text]="'To'" [(value)]="search.To"></comboBoxTemplate>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-Margin">Departure date:</label>
+                        <input class="form-control" [(ngModel)]="search.departureDate" />
+                    </div>
+                    <div class="form-group">
+                        <label class="label-Margin">Return date:</label>
+                        <input class="form-control" [(ngModel)]="search.returnDate" />
+                    </div>
                 </div>
-            </div>
-            <button type="button" class="pull-right btn btn-success" (click)="Search()">Search</button>
+                </div>
+
+                <div class="form-inline">
+                    <div class="form-group">
+                        <label class="label-Margin">Highest price:</label>
+                        <div class="col-md-4 input-group">
+                            <input class="form-control" [(ngModel)]="search.highestPrice"  required pattern="[0-9]+"  />
+                            <span class="input-group-addon">$</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-Margin">Smallest price:</label>
+                        <div class="col-md-4 input-group">
+                            <input class="form-control" [(ngModel)]="search.smallestPrice" />
+                            <span class="input-group-addon">$</span>
+                        </div>
+                    </div>
+
+                </div>
+      
+            <button type="button" class="pull-right btn btn-lg btn-success" (click)="Search()">Search</button>
         </div>
     </div>
     <div class="row">
@@ -47,17 +80,17 @@
                 </h4>
                 <h5>
                     <label>Date:</label>
-                    {{shipment.DateTime | date:'yyyy-MM-dd'}}
+                    {{shipment.DateTimeInput | date:'yyyy-MM-dd'}}
                     <label>Time:</label>
-                    {{shipment.DateTime | date:'hh:mm'}}
+                    {{shipment.DateTimeInput | date:'hh:mm'}}
                 </h5>
             </div>
         </div>
     </div>
     <div class="row">
         <ul class="pager">
-            <li [class.disabled]="true"><a (click)="previewPage()" >Preview</a></li>
-            <li><a (click)="nextPage()">Next</a></li>
+            <li [class.disabled]="pageIndex == 1 "><a href="javascript:void(0)" (click)="previewPage()" >Preview</a></li>
+            <li [class.disabled]="pageIndex >= pageCount"><a href="javascript:void(0)" (click)="nextPage()">Next</a></li>
         </ul>
     </div>
 </div>

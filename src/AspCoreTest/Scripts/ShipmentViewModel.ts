@@ -1,18 +1,19 @@
 ﻿export class Shipment {
     constructor(
-        public Id: number,
-        public From: string,
+        public id: number,
+        public from: string,
         public To: string,
-        public DateTime: any,
-        public Places: Array<number>,
-        public Price: number)
+        public dateTimeOut: any,
+        public dateTimeInput: any,
+        public places: Array<number>,
+        public price: number)
     { }
 }
 
 export class Direction {
     constructor(
-        public From: string,
-        public To: string
+        public from: string,
+        public to: string
     )
     { }
 }

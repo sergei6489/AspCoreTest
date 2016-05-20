@@ -27,17 +27,17 @@ namespace AspCoreTest.Repository
             var baseQuery = context.Shipments.Where( n => !n.IsDelete );
             if( search != null )
             {
-                if( search.HightPrice.HasValue )
+                if( search.HighestPrice.HasValue )
                 {
-                    baseQuery = baseQuery.Where( n => n.Price < search.HightPrice );
+                    baseQuery = baseQuery.Where( n => n.Price < search.HighestPrice );
                 }
-                if( search.SmallPrice.HasValue )
+                if( search.SmallestPrice.HasValue )
                 {
-                    baseQuery = baseQuery.Where( n => n.Price > search.SmallPrice );
+                    baseQuery = baseQuery.Where( n => n.Price > search.SmallestPrice );
                 }
             }
-            pageCount = baseQuery.Count();
-            return baseQuery.Skip( index * count ).Take( count ).ToList();
+            pageCount = (int) Math.Ceiling( (double) baseQuery.Count() / count);
+            return baseQuery.Skip( (index-1) * count ).Take( count ).ToList();
         }
 
         public void Delete( int id )

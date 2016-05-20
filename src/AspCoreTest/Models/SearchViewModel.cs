@@ -12,7 +12,7 @@ namespace AspCoreTest.Models
         public string From { get; set; }
         public string To { get; set; }
         public DateTime DateShipment { get; set; }
-        public decimal? HightPrice { get; set; }
-        public decimal? SmallPrice { get; set; }
+        public decimal? HighestPrice { get; set; }
+        public decimal? SmallestPrice { get; set; }
     }
 }

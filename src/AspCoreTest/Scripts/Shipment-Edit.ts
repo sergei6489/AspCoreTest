@@ -2,17 +2,14 @@
 import {Component, Input} from 'angular2/core';
 import { Shipment } from './ShipmentViewModel';
 import {ElementRef} from 'angular2/core';
-import {NgForm}    from 'angular2/common';
-import {EmailValidator} from './customValidation';
 import { MockDirectionString } from './Ioc/MockShipments';
 
 @Component({
     selector: "shipment-edit",
-    templateUrl: "app/partials/shipment-edit.html",
-    directives: [EmailValidator,]
+    templateUrl: "app/partials/shipment-edit.html"
 })
 export class ShipmentEdit {
-    shipment = new Shipment(1, "Barcelona", "Moscow", new Date(), [], 4555);
+    shipment = new Shipment(1, "Barcelona", "Moscow", new Date(), new Date(), [], 4555);
     directions: Array<string> = [];
 
     constructor(private elemRef: ElementRef) {
@@ -38,7 +35,7 @@ export class ShipmentEdit {
 
     OnShowDialog(shipment: Shipment) {
         this.getData();
-        this.shipment = new Shipment(shipment.Id, shipment.From, shipment.To, shipment.DateTime, shipment.Places, shipment.Price);
+        this.shipment = new Shipment(shipment.Id, shipment.From, shipment.To,shipment.DateTimeOut, shipment.DateTimeInput, shipment.Places, shipment.Price);
         jQuery(this.elemRef.nativeElement).dialog("open");
     }
 }

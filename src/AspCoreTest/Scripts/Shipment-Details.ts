@@ -16,7 +16,7 @@ import { ElementRef } from 'angular2/core';
 `]
 })
 export class ShipmentDetail {
-    shipment = new Shipment(1, "Barcelona", "Moscow", new Date(), [], 4555)
+    shipment = new Shipment(1, "Barcelona", "Moscow", new Date(), new Date(), [], 4555)
     
     constructor(private elemRef: ElementRef) {
         jQuery(this.elemRef.nativeElement).dialog({
