@@ -2,7 +2,7 @@
     constructor(
         public id: number,
         public from: string,
-        public To: string,
+        public to: string,
         public dateTimeOut: any,
         public dateTimeInput: any,
         public places: Array<number>,

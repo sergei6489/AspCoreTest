@@ -20,7 +20,7 @@ export class ShipmentService
     getShipments(pageNumber: number, itemCount: number, search: SearchViewModel) {
         this.headers = new Headers({ 'Content-Type': 'application/json' });
         this.options = new RequestOptions({ headers: this.headers });
-        return this.http.post('http://localhost:4163/shipments/Get', JSON.stringify({ itemCount: itemCount, pageNumber: pageNumber, From: search.From, To: search.To, DateShipment: search.DateShipment }), this.options)
+        return this.http.post('http://localhost:4163/shipments/Get', JSON.stringify({ itemCount: itemCount, pageNumber: pageNumber, From: search.from, To: search.to, departureDate: search.departureDate, returnDate: search.returnDate }), this.options)
             .map(this.ExtractData).catch(this.handleError);
     }
 

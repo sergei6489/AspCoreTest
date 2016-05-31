@@ -5,4 +5,5 @@
     public returnDate: Date;
     public highestPrice: number;
     public smallestPrice: number;
+    public isRoundTrip: boolean;
 }

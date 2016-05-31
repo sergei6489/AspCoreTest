@@ -8,7 +8,7 @@ import {Http} from "angular2/http"
                     <div class="input-group">
                         <input [(ngModel)]="value" class="form-control" (input)="Changed($event.target.value)"/>
                         <div class="input-group-btn">
-                            <button type="button"  class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <button type="button" (click)="click()"  class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
                             <ul #menuRef class="dropdown-menu dropdown-menu-right" role="menu">
                                 <li *ngFor="#direction of directions" class="input-lg"><a href="javascript:void(0)" (click)="selectItem($event)" >{{direction}}</a></li>
                             </ul>
@@ -25,8 +25,8 @@ export class SearchControl {
     public constructor(public http: Http) {
     }
 
-    getData(text: string) {
-        this.http.get("http://localhost:4163/Shipments/GetDirections?data=" + text).map(res =>
+    getData() {
+        this.http.get("http://localhost:4163/Shipments/GetDirections?data=" + this.text).map(res =>
             res.json()).map((directions: Array<string>) => {
             this.directions = [];
             directions.forEach((data: string) => { this.directions.push(data) });
@@ -34,7 +34,6 @@ export class SearchControl {
                 jQuery(this.menuRef.nativeElement).dropdown('toggle');
             }
             }).subscribe();
-
     }
 
     selectItem(event) {
@@ -45,6 +44,10 @@ export class SearchControl {
 
     Changed(value) {
         this.valueChange.emit(value);
-        this.getData(value);
+        this.getData();
+    }
+
+    click() {
+        this.getData();
     }
 }

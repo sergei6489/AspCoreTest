@@ -10,13 +10,14 @@ import {SearchControl} from './SearchControl';
 import { MockDirections, MockShipments } from './Ioc/MockShipments';
 import { ShipmentService } from "./ShipmentService";
 import { SearchViewModel } from "./SearchViewModel";
-import { PagerShipments } from "./PagerShipments"
+import { PagerShipments } from "./PagerShipments";
+import { DateTimeControl } from "./DateTimeControl";
 
 @Component({
     selector: "testProject",
     providers: [ShipmentService, SearchViewModel],
     templateUrl: "app/partials/Main.html",
-    directives: [ShipmentDetail,ShipmentEdit,SearchControl]
+    directives: [ShipmentDetail, ShipmentEdit, SearchControl, DateTimeControl]
 })
 
 class AppComponent implements OnInit {
@@ -45,6 +46,8 @@ class AppComponent implements OnInit {
         this.search = new SearchViewModel();
         this.search.highestPrice = 1000;
         this.search.smallestPrice = 10;
+        this.search.departureDate = new Date();
+        this.search.returnDate = new Date();
         this.Search();
     }
 
@@ -53,7 +56,7 @@ class AppComponent implements OnInit {
             subscribe(res => {
                 this.shipments = [];
                 res.Result.forEach((data: Shipment) => {
-                    this.shipments.push(new Shipment(data.id, data.from, data.To, new Date(data.dateTimeOut), new Date(data.dateTimeInput), data.Places, data.Price));
+                    this.shipments.push(new Shipment(data.id, data.from, data.to, new Date(data.dateTimeOut), new Date(data.dateTimeInput), data.places, data.price));
                 });
                 this.pageCount = res.PageCount;
             }, error => this.errorText = error);

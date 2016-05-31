@@ -35,7 +35,7 @@ export class ShipmentEdit {
 
     OnShowDialog(shipment: Shipment) {
         this.getData();
-        this.shipment = new Shipment(shipment.Id, shipment.From, shipment.To,shipment.DateTimeOut, shipment.DateTimeInput, shipment.Places, shipment.Price);
+        this.shipment = new Shipment(shipment.id, shipment.from, shipment.to,shipment.dateTimeOut, shipment.dateTimeInput, shipment.places, shipment.price);
         jQuery(this.elemRef.nativeElement).dialog("open");
     }
 }
