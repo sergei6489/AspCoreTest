@@ -42,13 +42,15 @@
     <script src="lib/bootstrap.min.js"></script>
     <script src="lib/angular2-polyfills.js"></script>
     <script src="lib/angular2.dev.js"></script>
+    <script src="lib/router.dev.js"></script>
     <script src="lib/http.dev.js"></script>
     <script src="lib/rxjs/Rx.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script>
-        System.import('app/appController').catch(console.log.bind(console));
+        System.import('app/main').catch(console.log.bind(console));
     </script>
 </head>
+<base href="/">
 <body>
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -72,7 +74,7 @@
         </div>
     </div>
     <div class="container-fluid" style="margin-top:60px;">
-        <testProject>Loading...</testProject>
+        <myApp>Loading...</myApp>
     </div>
 </body>
 </html>

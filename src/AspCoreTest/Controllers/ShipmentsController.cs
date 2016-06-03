@@ -23,15 +23,21 @@ namespace AspCoreTest.Controllers
         public PagerViewModel<ShipmentViewModel> Get( [FromBody] SearchViewModel search )
         {
             int count;
-            var list = repository.Get( search.pageNumber, search.itemCount, null, out count );
-            var data = new PagerViewModel<ShipmentViewModel>()
+            try
             {
-                Result = AutoMapper.Mapper.Map<List<Shipment>, List<ShipmentViewModel>>( list ),
-                PageCount = count
-            };
-            return data;
+                var list = repository.Get( search.pageIndex, search.itemCount, search, out count );
+                var data = new PagerViewModel<ShipmentViewModel>()
+                {
+                    Result = AutoMapper.Mapper.Map<List<Shipment>, List<ShipmentViewModel>>( list ),
+                    PageCount = count
+                };
+                return data;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
-
 
         public ShipmentViewModel GetShipment( int id )
         {
@@ -39,19 +45,17 @@ namespace AspCoreTest.Controllers
         }
 
         [HttpPost]
-        public void Set(ShipmentViewModel shipment)
+        public void Set( ShipmentViewModel shipment )
         {
             var data = AutoMapper.Mapper.Map<ShipmentViewModel, Shipment>( shipment );
             repository.InsertOrUpdate( data );
         }
 
+        [HttpGet]
         public JsonResult GetDirections( string data )
         {
-            List<string> list = new List<string>();
-            list.Add( "Moscow" );
-            list.Add( "Madrid" );
-            list.Add( "Minsk" );
-            return Json( list );
+            data = data == null ? String.Empty : data;
+            return Json( repository.GetDictionary( data ) );
         }
     }
 }

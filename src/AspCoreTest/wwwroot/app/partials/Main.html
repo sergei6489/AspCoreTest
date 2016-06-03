@@ -55,7 +55,7 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="pull-right btn btn-lg btn-success" (click)="Search()">Search</button>
+            <button type="button" class="pull-right btn btn-success" (click)="Search()">Search</button>
         </div>
     </div>
     <div class="row">
@@ -72,7 +72,7 @@
                     <label class="label label-primary">Dictionary:</label>
                 </h3>
                 <div class="btn-group pull-right">
-                    <a class="btn btn-danger">Buy</a>
+                    <a class="btn btn-danger" [routerLink]="['BuyTicket']">Buy</a>
                     <a class="btn btn-info" (click)="ShowInfo(shipment)">Info</a>
                     <a class="btn btn-info" (click)="EditInfo(shipment)">Edit</a>
                 </div>
@@ -92,8 +92,8 @@
     </div>
     <div class="row">
         <ul class="pager">
-            <li [class.disabled]="pageIndex == 1 "><a href="javascript:void(0)" (click)="previewPage()">Preview</a></li>
-            <li [class.disabled]="pageIndex >= pageCount"><a href="javascript:void(0)" (click)="nextPage()">Next</a></li>
+            <li [class.disabled]="search.pageIndex == 1 "><a href="javascript:void(0)" (click)="previewPage()">Preview</a></li>
+            <li [class.disabled]="search.pageIndex >= search.pageCount"><a href="javascript:void(0)" (click)="nextPage()">Next</a></li>
         </ul>
     </div>
 </div>

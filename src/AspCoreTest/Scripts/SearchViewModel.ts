@@ -6,4 +6,7 @@
     public highestPrice: number;
     public smallestPrice: number;
     public isRoundTrip: boolean;
+    public itemCount: number;
+    public pageIndex: number;
+    public pageCount: number;
 }

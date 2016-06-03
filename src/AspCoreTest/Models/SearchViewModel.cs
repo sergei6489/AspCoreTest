@@ -8,11 +8,12 @@ namespace AspCoreTest.Models
     public class SearchViewModel
     {
         public int itemCount { get; set; }
-        public int pageNumber { get; set; }
-        public string From { get; set; }
-        public string To { get; set; }
-        public DateTime DateShipment { get; set; }
-        public decimal? HighestPrice { get; set; }
-        public decimal? SmallestPrice { get; set; }
+        public int pageIndex { get; set; }
+        public string from { get; set; }
+        public string to { get; set; }
+        public DateTime? departureDate { get; set; }
+        public DateTime? returnDate { get; set; }
+        public decimal? highestPrice { get; set; }
+        public decimal? smallestPrice { get; set; }
     }
 }

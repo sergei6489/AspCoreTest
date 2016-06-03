@@ -17,10 +17,10 @@ export class ShipmentService
     public constructor(public http: Http) {
     }
 
-    getShipments(pageNumber: number, itemCount: number, search: SearchViewModel) {
+    getShipments( search: SearchViewModel ) {
         this.headers = new Headers({ 'Content-Type': 'application/json' });
         this.options = new RequestOptions({ headers: this.headers });
-        return this.http.post('http://localhost:4163/shipments/Get', JSON.stringify({ itemCount: itemCount, pageNumber: pageNumber, From: search.from, To: search.to, departureDate: search.departureDate, returnDate: search.returnDate }), this.options)
+        return this.http.post('http://localhost:4163/shipments/Get', JSON.stringify(search), this.options)
             .map(this.ExtractData).catch(this.handleError);
     }
 
@@ -43,9 +43,8 @@ export class ShipmentService
         return result || {};
     }
     private handleError(error: any) {
-        // In a real world app, we might use a remote logging infrastructure
         let errMsg = error.message || 'Server error';
-        console.error(errMsg); // log to console instead
+        console.error(errMsg); 
         return Observable.throw(errMsg);
     }
 }

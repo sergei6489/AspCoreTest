@@ -25,8 +25,8 @@ export class SearchControl {
     public constructor(public http: Http) {
     }
 
-    getData() {
-        this.http.get("http://localhost:4163/Shipments/GetDirections?data=" + this.text).map(res =>
+    getData(value) {
+        this.http.get("http://localhost:4163/Shipments/GetDirections?data=" + value).map(res =>
             res.json()).map((directions: Array<string>) => {
             this.directions = [];
             directions.forEach((data: string) => { this.directions.push(data) });
@@ -44,10 +44,10 @@ export class SearchControl {
 
     Changed(value) {
         this.valueChange.emit(value);
-        this.getData();
+        this.getData(value);
     }
 
     click() {
-        this.getData();
+        this.getData(this.value);
     }
 }
