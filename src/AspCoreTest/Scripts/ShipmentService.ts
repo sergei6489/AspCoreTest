@@ -1,14 +1,13 @@
 ﻿///<reference path="./typings/tsd.d.ts" />
-///<reference path="../node_modules/angular2/typings/browser.d.ts"/>
-import { Injectable } from "angular2/core"
-import {Http, Headers, Response, RequestOptions} from "angular2/http"
+
+import { Injectable } from "@angular/core"
+import {Http, Headers, Response, RequestOptions} from "@angular/http"
 import {Shipment} from "./ShipmentViewModel"
 import {SearchViewModel} from "./SearchViewModel"
 import {PagerShipments} from "./PagerShipments"
 import { Observable }  from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-
 @Injectable()
 export class ShipmentService
 {

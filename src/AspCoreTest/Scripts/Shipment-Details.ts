@@ -1,7 +1,7 @@
 ﻿///<reference path="./typings/tsd.d.ts" />
-import {Component, Input} from 'angular2/core';
+import {Component, Input} from '@angular/core';
 import { Shipment } from './ShipmentViewModel';
-import { ElementRef } from 'angular2/core';
+import { ElementRef } from '@angular/core';
 
 @Component({
     selector: "shipment-detail",

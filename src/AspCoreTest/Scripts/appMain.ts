@@ -1,7 +1,6 @@
 ﻿///<reference path="./typings/tsd.d.ts" />
-///<reference path="../node_modules/angular2/typings/browser.d.ts"/>
-import {Component} from "angular2/core"
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
+import {Component} from "@angular/core"
+import { Routes, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router';
 import {TicketComponent} from "./TicketComponent"
 import { AppComponent } from "./appController"
 import { ShipmentService } from "./ShipmentService";
@@ -14,16 +13,13 @@ import { SearchViewModel } from "./SearchViewModel";
     providers: [ROUTER_PROVIDERS, ShipmentService, SearchViewModel]
 })
 
-@RouteConfig(
+@Routes(
     [{
         path: "/",
-        name: "Default",
-        component: AppComponent,
-        useAsDefault: true
+        component: AppComponent
     },
         {
             path: "/buyTickets",
-            name: "BuyTicket",
             component: TicketComponent
         }])
 export class appMain {

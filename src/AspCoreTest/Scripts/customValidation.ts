@@ -1,7 +1,7 @@
 ﻿///<reference path="./typings/tsd.d.ts" />
-import {provide, Directive, forwardRef} from 'angular2/core';
-import {Control} from 'angular2/common';
-import {NG_VALIDATORS} from 'angular2/common';
+import {provide, Directive, forwardRef} from '@angular/core';
+import {Control} from '@angular/common';
+import {NG_VALIDATORS} from '@angular/common';
 
 function validateEmailFactory() {
     return (c: Control) => {

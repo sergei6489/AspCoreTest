@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using AspCoreTest.EF;
-using Microsoft.AspNet.Http;
-using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 
 namespace AspCoreTest.Repository
 {

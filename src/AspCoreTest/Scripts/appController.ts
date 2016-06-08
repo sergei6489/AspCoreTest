@@ -1,6 +1,5 @@
 ﻿///<reference path="./typings/tsd.d.ts" />
-///<reference path="../node_modules/angular2/typings/browser.d.ts"/>
-import {Component, ViewChild, OnInit} from 'angular2/core';
+import {Component, ViewChild, OnInit} from '@angular/core';
 import { Shipment, Direction } from './ShipmentViewModel';
 import {ShipmentDetail} from './Shipment-Details';
 import {ShipmentEdit} from './Shipment-Edit';

@@ -1,7 +1,6 @@
 ﻿///<reference path="./typings/tsd.d.ts" />
-///<reference path="../node_modules/angular2/typings/browser.d.ts"/>
-import {Component, ElementRef, ViewChild, Input, Output, EventEmitter, AfterViewInit } from 'angular2/core'
-import {Http} from "angular2/http"
+import {Component, ElementRef, ViewChild, Input, Output, EventEmitter, AfterViewInit } from '@angular/core'
+import {Http} from "@angular/http"
 
 @Component({
     selector: 'DateTimePicker',

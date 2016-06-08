@@ -1,9 +1,9 @@
 using System;
-using Microsoft.Data.Entity;
-using Microsoft.Data.Entity.Infrastructure;
-using Microsoft.Data.Entity.Metadata;
-using Microsoft.Data.Entity.Migrations;
 using AspCoreTest.EF;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AspCoreTest.Migrations
 {
@@ -11,6 +11,7 @@ namespace AspCoreTest.Migrations
     [Migration("20160506124640_Db")]
     partial class Db
     {
+
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder

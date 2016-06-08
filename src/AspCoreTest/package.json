@@ -1,28 +1,33 @@
 {
-  "name": "angular2",
+  "name": "aspnetcore-angular2-seed",
   "version": "1.0.0",
-  "license": "ISC",
   "dependencies": {
-    "ng2-bootstrap": "1.0.15",
-    "angular2": "2.0.0-beta.17",
-    "bootstrap": "3.3.6",
-    "angular2-modal": "0.1.1",
-    "systemjs": "0.19.25",
-    "es6-shim": "^0.35.0",
-    "reflect-metadata": "0.1.2",
-    "rxjs": "5.0.0-beta.2",
+    "@angular/common": "2.0.0-rc.1",
+    "@angular/compiler": "2.0.0-rc.1",
+    "@angular/core": "2.0.0-rc.1",
+    "@angular/http": "2.0.0-rc.1",
+    "@angular/platform-browser": "2.0.0-rc.1",
+    "@angular/platform-browser-dynamic": "2.0.0-rc.1",
+    "@angular/router": "2.0.0-rc.1",
+    "@angular/router-deprecated": "2.0.0-rc.1",
+    "@angular/upgrade": "2.0.0-rc.1",
+    "systemjs": "0.19.27",
+    "core-js": "^2.4.0",
+    "es6-shim": "0.35.1",
+    "reflect-metadata": "^0.1.3",
+    "rxjs": "5.0.0-beta.8",
+    "zone.js": "^0.6.12",
+    "angular2-in-memory-web-api": "0.0.11",
+    "bootstrap": "^3.3.6",
     "jquery": "2.2.3",
-    "jquery-ui": "^1.10.5",
-    "typings": "0.7.12",
-    "zone.js": "^0.6.12"
+    "jquery-ui": "^1.10.5"
   },
   "devDependencies": {
-    "gulp": "3.8.11",
-    "gulp-cssmin": "0.1.7",
-    "gulp-uglify": "1.2.0",
-    "gulp-rename": "1.2.2",
-    "rimraf": "2.2.8",
-    "typescript": "^1.8.9",
-    "lodash": "3.10.1"
+    "gulp": "^3.9.1",
+    "q": "^1.4.1",
+    "rimraf": "^2.5.2",
+    "typings": "1.0.4",
+    "typescript": "1.8.10"
   }
 }
+
