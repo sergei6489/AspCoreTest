@@ -1,6 +1,6 @@
 ﻿///<reference path="./typings/tsd.d.ts" />
 import {Component} from "@angular/core"
-import { Routes, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router';
+import { Routes, Router, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, RouteSegment } from '@angular/router';
 import {TicketComponent} from "./TicketComponent"
 import { AppComponent } from "./appController"
 import { ShipmentService } from "./ShipmentService";
@@ -13,14 +13,17 @@ import { SearchViewModel } from "./SearchViewModel";
     providers: [ROUTER_PROVIDERS, ShipmentService, SearchViewModel]
 })
 
-@Routes(
-    [{
-        path: "/",
-        component: AppComponent
-    },
+    @Routes(
+        [
+            {
+                path: "/*",
+                component: AppComponent
+            },
         {
             path: "/buyTickets",
             component: TicketComponent
-        }])
+            }])
 export class appMain {
+    constructor(router: Router) {
+    }
 }

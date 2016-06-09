@@ -4,9 +4,7 @@
     <meta charset="utf-8" />
     <title>Angular2 Aspnet5 Seed</title>
     <link rel="stylesheet" href="lib/css/bootstrap.css" />
-    <link rel="stylesheet" href="lib/css/Site.css" />
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <script src="lib//system.js"></script>
     <style>
         .ui-datepicker{z-index:1151 !important;}
         .sidebar {
@@ -26,25 +24,13 @@
             margin-left: 8px;
         }
     </style>
-    <script>
-        System.config({
-            defaultJSExtensions: true,
-            packages: {
-                'app': { defaultExtension: 'js' },
-                'lib': { defaultExtension: 'js' },
-            },
-            map: {
-                'rxjs': 'lib/rxjs',
-            }
-        });
-    </script>
-    <script src="lib/jquery.js"></script>
-    <script src="lib/bootstrap.min.js"></script>
-    <script src="lib/angular2-polyfills.js"></script>
-    <script src="lib/angular2.dev.js"></script>
-    <script src="lib/router.dev.js"></script>
-    <script src="lib/http.dev.js"></script>
-    <script src="lib/rxjs/Rx.js"></script>
+
+    <script src="lib/core-js/client/shim.min.js"></script>
+    <script src="lib/zone.js/dist/zone.js"></script>
+    <script src="lib/reflect-metadata/Reflect.js"></script>
+    <script src="lib/systemjs/dist/system.src.js"></script>
+    <script src="systemjs.config.js"></script>
+    <script src="lib/jquery/dist/jquery.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script>
         System.import('app/main').catch(console.log.bind(console));

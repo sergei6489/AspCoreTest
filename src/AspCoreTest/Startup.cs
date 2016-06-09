@@ -31,8 +31,7 @@ namespace AspCoreTest
         public IServiceProvider ConfigureServices( IServiceCollection services )
         {
             services.AddMvc();
-            services
-            .AddDbContext<ApplicationDBContext>( options =>
+            services.AddDbContext<ApplicationDBContext>( options =>
                  options.UseSqlServer( Configuration["Data:DefaultConnection:ConnectionString"] ) );
 
             // добавление сервисов Idenity
@@ -57,24 +56,37 @@ namespace AspCoreTest
                 try
                 {
                     var data = app.ApplicationServices.GetService<ApplicationDBContext>();
+
                     if( !data.Users.Any( n => n.UserName == "admin" ) )
                     {
                         data.Users.Add( new User() { UserName = "admin", IsAdmin = true, PasswordHash = "", Email = "test@mail.ru", PhoneNumber = "89192734674" } );
                         data.Users.Add( new User() { UserName = "test1", IsAdmin = false, PasswordHash = "", Email = "test@mail.ru", PhoneNumber = "89192744674" } );
                         data.Users.Add( new User() { UserName = "test2", IsAdmin = false, PasswordHash = "", Email = "test@mail.ru", PhoneNumber = "89192746674" } );
-                        data.Shipments.Add( new Shipment() { From = "Minsk" , To = "Moscow" , DateTimeInput = DateTime.Now, DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
-                        data.Shipments.Add( new Shipment() { From = "Barcelona" , To = "Moscow" , DateTimeInput = DateTime.Now.AddDays( 1 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
-                        data.Shipments.Add( new Shipment() { From = "Minsk" , To = "Barcelona" , DateTimeInput = DateTime.Now.AddDays( 2 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
-                        data.Shipments.Add( new Shipment() { From = "NewYork" , To = "Moscow" , DateTimeInput = DateTime.Now.AddDays( 3 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
-                        data.Shipments.Add( new Shipment() { From = "Minsk" , To = "Moscow" , DateTimeInput = DateTime.Now.AddDays( 4 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
-                        data.Shipments.Add( new Shipment() { From = "Minsk" , To = "NewYork" , DateTimeInput = DateTime.Now.AddDays( 5 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
-                        data.Shipments.Add( new Shipment() { From = "Bagdad" , To = "Moscow" , DateTimeInput = DateTime.Now.AddDays( 6 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
-                        data.Shipments.Add( new Shipment() { From = "Minsk" , To = "Moscow" , DateTimeInput = DateTime.Now.AddDays( 4 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
-                        data.Shipments.Add( new Shipment() { From = "Minsk" , To = "Bagdad" , DateTimeInput = DateTime.Now.AddDays( 3 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
-                        data.Shipments.Add( new Shipment() { From = "Bagdad" , To = "Barcelona" , DateTimeInput = DateTime.Now.AddDays( 6 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
-                        data.Shipments.Add( new Shipment() { From = "Minsk" , To = "Moscow", DateTimeInput = DateTime.Now.AddDays( 8 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
-                        data.Shipments.Add( new Shipment() { From = "Minsk" , To = "Bagdad", DateTimeInput = DateTime.Now.AddDays( 9 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
-                        data.Shipments.Add( new Shipment() { From = "Minsk" , To = "Moscow", DateTimeInput = DateTime.Now.AddDays( 10 ), DateTimeOut = DateTime.Now.AddDays( 2 ), IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "Minsk", To = "Moscow", IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "Barcelona", To = "Moscow", IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "Minsk", To = "Barcelona", IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "NewYork", To = "Moscow", IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "Minsk", To = "Moscow", IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "Minsk", To = "NewYork", IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "Bagdad", To = "Moscow", IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "Minsk", To = "Moscow", IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "Minsk", To = "Bagdad", IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "Bagdad", To = "Barcelona", IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "Minsk", To = "Moscow", IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "Minsk", To = "Bagdad", IsDelete = false, Price = 345 } );
+                        data.Shipments.Add( new Shipment() { From = "Minsk", To = "Moscow", IsDelete = false, Price = 345 } );
+
+                        data.SaveChanges();
+                        TimeSpan timeout = new TimeSpan( 0, 13, 0 );
+                        TimeSpan timeinput = new TimeSpan( 3, 0, 0 );
+                        data.Shipments.ToList().ForEach( ship => {
+                            timeout = timeout.Add( new TimeSpan(0,20,0) );
+                            timeinput = timeinput.Add( new TimeSpan( 0, 20, 0 ) );
+                            data.ShipmentDates.Add( new ShipmentDate() { TimeInput = timeinput, TimeOut = timeout, TimeOutDayOfWeek = DayOfWeek.Sunday, TimeInputDayOfWeek = DayOfWeek.Friday, Shipment = ship } );
+                            data.ShipmentDates.Add( new ShipmentDate() { TimeInput = timeinput, TimeOut = timeout, TimeOutDayOfWeek = DayOfWeek.Wednesday, TimeInputDayOfWeek = DayOfWeek.Friday, Shipment = ship } );
+                            data.ShipmentDates.Add( new ShipmentDate() { TimeInput = timeinput, TimeOut = timeout, TimeOutDayOfWeek = DayOfWeek.Friday, TimeInputDayOfWeek = DayOfWeek.Friday, Shipment = ship } );
+                            data.ShipmentDates.Add( new ShipmentDate() { TimeInput = timeinput, TimeOut = timeout, TimeOutDayOfWeek = DayOfWeek.Monday, TimeInputDayOfWeek = DayOfWeek.Friday, Shipment = ship } );
+                        } );
                         data.SaveChanges();
                     }
                 }

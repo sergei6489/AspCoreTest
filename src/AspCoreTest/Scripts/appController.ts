@@ -1,4 +1,5 @@
 ﻿///<reference path="./typings/tsd.d.ts" />
+import {ROUTER_DIRECTIVES} from "@angular/router";
 import {Component, ViewChild, OnInit} from '@angular/core';
 import { Shipment, Direction } from './ShipmentViewModel';
 import {ShipmentDetail} from './Shipment-Details';
@@ -12,9 +13,9 @@ import { DateTimeControl } from "./DateTimeControl";
 
 @Component({
     selector: "testProject",
-    providers: [ShipmentService, SearchViewModel],
+    providers: [ShipmentService, SearchViewModel, ],
     templateUrl: "app/partials/Main.html",
-    directives: [ShipmentDetail, ShipmentEdit, SearchControl, DateTimeControl]
+    directives: [ShipmentDetail, ShipmentEdit, SearchControl, DateTimeControl, ROUTER_DIRECTIVES]
 })
 
 export class AppComponent implements OnInit {

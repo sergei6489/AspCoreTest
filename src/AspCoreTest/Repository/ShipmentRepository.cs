@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AspCoreTest.EF;
 using AspCoreTest.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace AspCoreTest.Repository
 {
@@ -45,8 +46,9 @@ namespace AspCoreTest.Repository
                     baseQuery = baseQuery.Where( m => m.To == search.to );
                 }
             }
+            var hh = context.Shipments.ToList();
             pageCount = (int)Math.Ceiling( (double)baseQuery.Count() / count );
-            return baseQuery.Skip( (index - 1) * count ).Take( count ).ToList();
+            return baseQuery.Skip( (index - 1) * count ).Take( count ).Include(n=>n.Shipments).ToList();
         }
 
         public void Delete( int id )
@@ -69,9 +71,7 @@ namespace AspCoreTest.Repository
                 }
                 else
                 {
-                    prod.DateTimeInput = shipment.DateTimeInput;
                     prod.Price = shipment.Price;
-                    prod.DateTimeOut = shipment.DateTimeOut;
                     prod.IsDelete = shipment.IsDelete;
                     prod.To = shipment.To;
                 }
