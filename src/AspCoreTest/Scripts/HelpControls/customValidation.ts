@@ -1,4 +1,4 @@
-﻿///<reference path="./typings/tsd.d.ts" />
+﻿///<reference path="../typings/tsd.d.ts" />
 import {provide, Directive, forwardRef} from '@angular/core';
 import {Control} from '@angular/common';
 import {NG_VALIDATORS} from '@angular/common';

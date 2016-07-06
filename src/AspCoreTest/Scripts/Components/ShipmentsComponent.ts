@@ -1,26 +1,25 @@
-﻿///<reference path="./typings/tsd.d.ts" />
+﻿///<reference path="../typings/tsd.d.ts" />
 import {ROUTER_DIRECTIVES} from "@angular/router";
 import {Component, ViewChild, OnInit} from '@angular/core';
-import { Shipment, Direction } from './ShipmentViewModel';
-import {ShipmentDetail} from './Shipment-Details';
-import {ShipmentEdit} from './Shipment-Edit';
-import {SearchControl} from './SearchControl';
-import { MockDirections, MockShipments } from './Ioc/MockShipments';
-import { ShipmentService } from "./ShipmentService";
-import { SearchViewModel } from "./SearchViewModel";
-import { PagerShipments } from "./PagerShipments";
-import { DateTimeControl } from "./DateTimeControl";
+import { Shipment, Direction } from '../ViewModels/ShipmentViewModel';
+import {ShipmentDetailComponent} from '../Components/shipmentDetailComponent';
+import { ShipmentEditComponent } from '../Components/shipmentEditComponent';
+import {SearchControl} from '../HelpControls/SearchControl';
+import { ShipmentService } from "../Services/ShipmentService";
+import { SearchViewModel } from "../ViewModels/SearchViewModel";
+import { PagerShipmentsViewModel } from "../ViewModels/PagerShipmentsViewModel";
+import { DateTimeControl } from "../HelpControls/DateTimeControl";
 
 @Component({
     selector: "testProject",
-    providers: [ShipmentService, SearchViewModel, ],
+    providers: [ShipmentService, SearchViewModel ],
     templateUrl: "app/partials/Main.html",
-    directives: [ShipmentDetail, ShipmentEdit, SearchControl, DateTimeControl, ROUTER_DIRECTIVES]
+    directives: [ShipmentDetailComponent, ShipmentEditComponent, SearchControl, DateTimeControl, ROUTER_DIRECTIVES]
 })
 
-export class AppComponent implements OnInit {
-    @ViewChild("shipmentDetail") detail: ShipmentDetail;
-    @ViewChild("shipmentEdit") edit: ShipmentEdit;
+export class ShipmentsComponent implements OnInit {
+    @ViewChild("shipmentDetail") detail: ShipmentDetailComponent;
+    @ViewChild("shipmentEdit") edit: ShipmentEditComponent;
     shipments: Array<Shipment> = [];
     errorText: string;
 

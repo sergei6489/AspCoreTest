@@ -1,10 +1,9 @@
-﻿///<reference path="./typings/tsd.d.ts" />
-
+﻿///<reference path="../typings/tsd.d.ts" />
 import { Injectable } from "@angular/core"
 import {Http, Headers, Response, RequestOptions} from "@angular/http"
-import {Shipment} from "./ShipmentViewModel"
-import {SearchViewModel} from "./SearchViewModel"
-import {PagerShipments} from "./PagerShipments"
+import {Shipment} from "../ViewModels/ShipmentViewModel"
+import {SearchViewModel} from "../ViewModels/SearchViewModel"
+import {PagerShipmentsViewModel} from "../ViewModels/PagerShipmentsViewModel"
 import { Observable }  from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';

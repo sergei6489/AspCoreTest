@@ -1,6 +1,6 @@
-﻿///<reference path="./typings/tsd.d.ts" />
+﻿///<reference path="../typings/tsd.d.ts" />
 import {Component, Input} from '@angular/core';
-import { Shipment } from './ShipmentViewModel';
+import { Shipment } from '../ViewModels/ShipmentViewModel';
 import { ElementRef } from '@angular/core';
 
 @Component({
@@ -15,7 +15,7 @@ import { ElementRef } from '@angular/core';
         }
 `]
 })
-export class ShipmentDetail {
+export class ShipmentDetailComponent {
     shipment = new Shipment(1, "Barcelona", "Moscow", new Date(), new Date(), [], 4555)
     
     constructor(private elemRef: ElementRef) {

@@ -1,4 +1,4 @@
-﻿///<reference path="./typings/tsd.d.ts" />
+﻿///<reference path="../typings/tsd.d.ts" />
 import {Component, ElementRef, ViewChild, Input, Output, EventEmitter, AfterViewInit } from '@angular/core'
 import {Http} from "@angular/http"
 

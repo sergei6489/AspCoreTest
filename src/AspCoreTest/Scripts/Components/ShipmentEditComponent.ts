@@ -1,14 +1,13 @@
-﻿///<reference path="./typings/tsd.d.ts" />
+﻿///<reference path="../typings/tsd.d.ts" />
 import {Component, Input} from '@angular/core';
-import { Shipment } from './ShipmentViewModel';
+import { Shipment } from '../ViewModels/ShipmentViewModel';
 import {ElementRef} from '@angular/core';
-import { MockDirectionString } from './Ioc/MockShipments';
 
 @Component({
     selector: "shipment-edit",
     templateUrl: "app/partials/shipment-edit.html"
 })
-export class ShipmentEdit {
+export class ShipmentEditComponent {
     shipment = new Shipment(1, "Barcelona", "Moscow", new Date(), new Date(), [], 4555);
     directions: Array<string> = [];
 
@@ -30,7 +29,6 @@ export class ShipmentEdit {
     }
 
     getData() {
-        this.directions = MockDirectionString;
     }
 
     OnShowDialog(shipment: Shipment) {
