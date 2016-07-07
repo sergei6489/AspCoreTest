@@ -9,12 +9,12 @@ import { ShipmentService } from "../Services/ShipmentService";
 import { SearchViewModel } from "../ViewModels/SearchViewModel";
 import { PagerShipmentsViewModel } from "../ViewModels/PagerShipmentsViewModel";
 import { DateTimeControl } from "../HelpControls/DateTimeControl";
-
+import { MdButton } from "@angular2-material/button"
 @Component({
     selector: "testProject",
     providers: [ShipmentService, SearchViewModel ],
     templateUrl: "app/partials/Main.html",
-    directives: [ShipmentDetailComponent, ShipmentEditComponent, SearchControl, DateTimeControl, ROUTER_DIRECTIVES]
+    directives: [MdButton, ShipmentDetailComponent, ShipmentEditComponent, SearchControl, DateTimeControl, ROUTER_DIRECTIVES]
 })
 
 export class ShipmentsComponent implements OnInit {

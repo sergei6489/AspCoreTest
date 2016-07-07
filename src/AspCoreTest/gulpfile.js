@@ -33,6 +33,7 @@ gulp.task('clean', function (cb) {
 gulp.task('copy:lib', function () {
     var libs = [
         "@angular",
+        "@angular2-material",
         "jquery",
         "systemjs",
         "core-js",

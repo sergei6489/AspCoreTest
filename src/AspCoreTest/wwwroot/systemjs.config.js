@@ -3,17 +3,11 @@
     // map tells the System loader where to look for things
     var map = {
         'angular2-jwt': 'node_modules/angular2-jwt/angular2-jwt.js',
-        '@angular2-material/core': 'node_modules/@angular2-material/core',
-        '@angular2-material/checkbox': 'node_modules/@angular2-material/checkbox',
-        '@angular2-material/button': 'node_modules/@angular2-material/button',
-        '@angular2-material/progress-circle': 'node_modules/@angular2-material/progress-circle',
-        '@angular2-material/card': 'node_modules/@angular2-material/card',
-        '@angular2-material/input': 'node_modules/@angular2-material/input',
-        '@angular2-material/toolbar': 'node_modules/@angular2-material/toolbar',
         'app': 'app', // 'dist',
         'rxjs': 'lib/rxjs',
         'symbol-observable': 'lib/symbol-observable',
-        '@angular': 'lib/@angular'
+        '@angular': 'lib/@angular',
+        '@angular2-material': 'lib/@angular2-material'
     };
 
     // packages tells the System loader how to load when no filename and/or no extension
