@@ -17,6 +17,7 @@ import {Http} from "@angular/http"
 export class SearchControl {
     @Input() text: string;
     @Input() value: string;
+    @Input() url: string;
     @Output() valueChange: EventEmitter<String> = new EventEmitter<String>();
     public directions: Array<string> = [];
     @ViewChild('menuRef') menuRef: ElementRef;
@@ -25,7 +26,8 @@ export class SearchControl {
     }
 
     getData(value) {
-        this.http.get("http://localhost:4163/Shipments/GetDirections?data=" + value).map(res =>
+        value = value == undefined ? "" : value;
+        this.http.get(this.url+"?data=" + value).map(res =>
             res.json()).map((directions: Array<string>) => {
             this.directions = [];
             directions.forEach((data: string) => { this.directions.push(data) });

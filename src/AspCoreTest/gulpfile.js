@@ -40,7 +40,8 @@ gulp.task('copy:lib', function () {
         "zone.js",
         "reflect-metadata",
         "symbol-observable",
-        "rxjs"
+        "rxjs",
+        "bootstrap"
     ];
 
     var promises = [];

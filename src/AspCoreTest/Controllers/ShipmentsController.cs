@@ -52,10 +52,16 @@ namespace AspCoreTest.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetDirections( string data )
+        public JsonResult GetDirectionsFrom( string data )
         {
-            data = data == null ? String.Empty : data;
-            return Json( repository.GetDictionary( data ) );
+            data = data == null ? "" : data;
+            return Json( repository.GetDirectionsFrom( data ) );
+        }
+        [HttpGet]
+        public JsonResult GetDirectionsTo( string data )
+        {
+            data = data == null ? "" : data;
+            return Json( repository.GetDirectionsTo( data ) );
         }
     }
 }

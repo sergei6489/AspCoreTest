@@ -2,6 +2,7 @@
   "name": "aspnetcore-angular2-seed",
   "version": "1.0.0",
   "dependencies": {
+    "@angular/forms": "0.2.0",
     "@angular/common": "2.0.0-rc.4",
     "@angular/compiler": "2.0.0-rc.4",
     "@angular/core": "2.0.0-rc.4",
@@ -9,7 +10,10 @@
     "@angular/platform-browser": "2.0.0-rc.4",
     "@angular/platform-browser-dynamic": "2.0.0-rc.4",
     "@angular/router": "3.0.0-beta.2",
+    "@angular2-material/core": "2.0.0-alpha.6",
     "@angular2-material/button": "2.0.0-alpha.6",
+    "@angular2-material/progress-circle": "2.0.0-alpha.6",
+    "@angular2-material/checkbox": "2.0.0-alpha.6",
     "@angular2-material/input": "2.0.0-alpha.6",
     "systemjs": "0.19.31",
     "core-js": "^2.4.0",

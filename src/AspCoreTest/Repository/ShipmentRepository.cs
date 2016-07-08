@@ -13,7 +13,8 @@ namespace AspCoreTest.Repository
         Shipment GetById( int id );
         void InsertOrUpdate( Shipment product );
         void Delete( int id );
-        List<string> GetDictionary( string value );
+        List<string> GetDirectionsFrom( string value );
+        List<string> GetDirectionsTo( string value );
     }
 
     public class ShipmentRepository : IShipmentRepository
@@ -88,12 +89,27 @@ namespace AspCoreTest.Repository
             context.SaveChanges();
         }
 
-        public List<string> GetDictionary( string value )
+        public List<string> GetDirectionsFrom(string value)
         {
-            value = value.ToLower();
-            var hh = context.Shipments.Where( n => n.To.Contains( value ) ).Select( m => m.To ).ToList().
-                Union( context.Shipments.Where( n => n.From.Contains( value ) ).Select( m => m.From ).ToList() );
-            return hh.ToList();
+            if (String.IsNullOrEmpty(value))
+            {
+                return context.Shipments.Where( n => n.From.Contains( value ) ).Select( n => n.From ).Distinct().Take( 20 ).ToList();
+            }
+            else
+            {
+                return context.Shipments.Where( n => n.From.Contains( value ) ).Select( n => n.From ).Distinct().Take( 20 ).ToList();
+            }
+        }
+        public List<string> GetDirectionsTo( string value)
+        {
+            if( String.IsNullOrEmpty( value ) )
+            {
+                return context.Shipments.Where( n => n.To.Contains( value ) ).Select( n => n.To ).Distinct().Take( 20 ).ToList();
+            }
+            else
+            {
+                return context.Shipments.Where( n => n.To.Contains( value ) ).Select( n => n.To ).Distinct().Take( 20 ).ToList();
+            }
         }
     }
 }

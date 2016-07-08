@@ -10,11 +10,14 @@ import { SearchViewModel } from "../ViewModels/SearchViewModel";
 import { PagerShipmentsViewModel } from "../ViewModels/PagerShipmentsViewModel";
 import { DateTimeControl } from "../HelpControls/DateTimeControl";
 import { MdButton } from "@angular2-material/button"
+import { MD_PROGRESS_CIRCLE_DIRECTIVES} from "@angular2-material/progress-circle";
+import { MD_CHECKBOX_DIRECTIVES } from "@angular2-material/checkbox";
+
 @Component({
     selector: "testProject",
     providers: [ShipmentService, SearchViewModel ],
     templateUrl: "app/partials/Main.html",
-    directives: [MdButton, ShipmentDetailComponent, ShipmentEditComponent, SearchControl, DateTimeControl, ROUTER_DIRECTIVES]
+    directives: [MdButton, MD_CHECKBOX_DIRECTIVES, MD_PROGRESS_CIRCLE_DIRECTIVES, ShipmentDetailComponent, ShipmentEditComponent, SearchControl, DateTimeControl, ROUTER_DIRECTIVES]
 })
 
 export class ShipmentsComponent implements OnInit {
@@ -22,6 +25,7 @@ export class ShipmentsComponent implements OnInit {
     @ViewChild("shipmentEdit") edit: ShipmentEditComponent;
     shipments: Array<Shipment> = [];
     errorText: string;
+    isLoad: boolean;
 
     ngOnInit() {
         this.init();
@@ -45,15 +49,22 @@ export class ShipmentsComponent implements OnInit {
     }
 
     Search() {
-        this.service.getShipments(this.search).
-            subscribe(res => {
-                this.shipments = [];
-                res.Result.forEach((data: Shipment) => {
-                    this.shipments.push(new Shipment(data.id, data.from, data.to, new Date(data.dateTimeOut), new Date(data.dateTimeInput), data.places, data.price));
-                });
-                this.search.pageCount = res.PageCount;
-            }, error => this.errorText = error);
+        this.shipments = [];
+        this.isLoad = true;
+        var self = this;
+        setTimeout(function () {
+            self.service.getShipments(self.search).
+                subscribe(res => {
+                    res.Result.forEach((data: Shipment) => {
+                        self.shipments.push(new Shipment(data.id, data.from, data.to, new Date(data.dateTimeOut), new Date(data.dateTimeInput), data.places, data.price));
+                    });
+                    self.search.pageCount = res.PageCount;
+                    self.isLoad = false;
+                }, error => { self.errorText = error; self.isLoad = false; });
+        },2000);
+
     }
+
     previewPage() {
         if (this.search.pageIndex > 0 && this.search.pageIndex < this.search.pageCount - 1) {
             this.search.pageIndex--;
